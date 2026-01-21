@@ -180,8 +180,12 @@ html{ scroll-behavior:smooth; }
   object-fit:cover;
   border:1px solid var(--line);
   box-shadow: var(--shadow2);
-  transform: translate(14px, 10px);
+
+  position: relative;
+  left: 16px;   /* derecha */
+  top: 12px;    /* abajo */
 }
+
 
 .hero-right{ display:flex; flex-direction:column; }
 
