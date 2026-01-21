@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tu Nombre — Portfolio</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta name="description" content="Portfolio personal: perfil, CV, LinkedIn y proyectos." />
+</head>
+
+<body>
+  <header class="container header">
+    <div class="hero">
+      <img class="avatar" src="assets/img/profile.jpg" alt="Foto de perfil" />
+      <div>
+        <h1>Tu Nombre Apellido</h1>
+        <p class="subtitle">
+          Software embebido · C · FreeRTOS · Linux embebido · I2C/SPI/UART/CAN · Python/Bash
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="assets/docs/CV.pdf" target="_blank" rel="noopener">Ver CV (PDF)</a>
+          <a class="btn" href="https://www.linkedin.com/in/TU-LINKEDIN/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="#proyectos">Proyectos</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card" id="perfil">
+      <h2>Perfil</h2>
+      <p>
+        Escribe aquí 5–8 líneas sobre tu perfil: especialidad, tecnologías, tipo de proyectos,
+        y qué aportas (robustez, modularidad, mantenimiento, testing, etc.).
+      </p>
+
+      <ul class="bullets">
+        <li><strong>Especialidad:</strong> desarrollo embebido estructurado en C y arquitectura modular.</li>
+        <li><strong>RTOS / SDK:</strong> FreeRTOS, ESP-IDF / STM32.</li>
+        <li><strong>Comunicaciones:</strong> I2C, SPI, UART, CAN (diseño y depuración).</li>
+        <li><strong>Automatización:</strong> scripting en Python y Bash.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="enlaces">
+      <h2>Enlaces</h2>
+      <div class="links">
+        <a href="assets/docs/CV.pdf" target="_blank" rel="noopener">📄 CV (PDF)</a>
+        <a href="https://www.linkedin.com/in/karim-errifai-haddaoui/" target="_blank" rel="noopener">💼 LinkedIn</a>
+        <a href="https://github.com/kerrifai" target="_blank" rel="noopener">🐙 GitHub</a>
+      </div>
+    </section>
+
+    <section class="card" id="proyectos">
+      <h2>Proyectos relevantes</h2>
+
+      <div class="grid">
+        <article class="project">
+          <h3>Proyecto 1</h3>
+          <p>Descripción corta (2 líneas): qué hiciste y con qué.</p>
+          <div class="tags">
+            <span>C</span><span>FreeRTOS</span><span>I2C</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/kerrifai" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <h3>Proyecto 2</h3>
+          <p>Descripción corta (2 líneas).</p>
+          <div class="tags">
+            <span>ESP32</span><span>SPI</span><span>Python</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/kerrifai?tab=repositories" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <h3>Proyecto 3</h3>
+          <p>Descripción corta (2 líneas).</p>
+          <div class="tags">
+            <span>Linux</span><span>Bash</span><span>CI</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/kerrifai?tab=repositories" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Tu Nombre · GitHub Pages</p>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
