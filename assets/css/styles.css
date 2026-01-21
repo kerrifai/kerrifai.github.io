@@ -180,6 +180,7 @@ html{ scroll-behavior:smooth; }
   object-fit:cover;
   border:1px solid var(--line);
   box-shadow: var(--shadow2);
+  transform: translate(14px, 10px);
 }
 
 .hero-right{ display:flex; flex-direction:column; }
