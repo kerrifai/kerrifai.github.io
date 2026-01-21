@@ -551,3 +551,13 @@ main{
   .grid{ grid-template-columns: 1fr; }
   .search{ min-width: 100%; }
 }
+
+/* Ajuste de posición de la foto en el hero */
+.hero-left{
+  padding-left: 10px;   /* mueve a la derecha */
+  padding-top: 8px;     /* baja un poco */
+}
+
+.avatar{
+  transform: translate(6px, 10px); /* (x,y) -> derecha, abajo */
+}
