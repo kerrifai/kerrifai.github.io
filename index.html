@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Karim Errifai Haddaoui — Portfolio</title>
   <meta name="description" content="Portfolio de Karim Errifai Haddaoui: Embedded Systems, Embedded Linux, C/C++, drivers y comunicaciones industriales." />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=1" />
 </head>
 
 <body>
   <!-- Premium background -->
-  <div class="bg"></div>
-  <div class="blob a"></div>
-  <div class="blob b"></div>
-  <div class="blob c"></div>
+  <div class="bg" aria-hidden="true"></div>
+  <div class="blob a" aria-hidden="true"></div>
+  <div class="blob b" aria-hidden="true"></div>
+  <div class="blob c" aria-hidden="true"></div>
 
   <!-- Top bar -->
   <nav class="topbar" aria-label="Navegación principal">
@@ -42,7 +42,8 @@
   <header class="container header" id="inicio">
     <div class="hero">
       <div class="hero-left">
-        <img class="avatar" src="assets/img/profile.png" alt="Foto de perfil de Karim Errifai Haddaoui" />
+        <!-- IMPORTANTE: verifica que exista EXACTAMENTE assets/img/profile.png -->
+        <img class="avatar" src="assets/img/profile.png?v=1" alt="Foto de perfil de Karim Errifai Haddaoui" />
       </div>
 
       <div class="hero-right">
@@ -65,8 +66,8 @@
           <span class="chip">⚙️ C/C++</span>
           <span class="chip">🐧 Embedded Linux</span>
           <span class="chip">🔌 I2C · SPI · UART · CAN</span>
-          <span class="chip">🛠️ Python · Bash Scripting</span>
-          <span class="chip">🛠️ Machine Learning · IA</span>
+          <span class="chip">🛠️ Python · Bash</span>
+          <span class="chip">🤖 ML · IA</span>
         </div>
 
         <div class="actions">
@@ -107,7 +108,6 @@
         Mi trabajo se centra en el diseño y desarrollo de sistemas embebidos, combinando programación en C/Python,
         arquitectura de software por capas y gestión de comunicaciones industriales.
       </p>
-      </div>
     </section>
 
     <!-- Skills -->
@@ -174,7 +174,42 @@
       </div>
     </section>
 
-  
+    <!-- Enlaces -->
+    <section class="card" id="enlaces">
+      <div class="card-header">
+        <div>
+          <h2>Enlaces</h2>
+          <p class="muted small">Acceso rápido a perfiles y documentos.</p>
+        </div>
+      </div>
+
+      <div class="links-grid">
+        <a class="link-card" href="assets/docs/CV_Karim.pdf" target="_blank" rel="noopener">
+          <span class="link-ico" aria-hidden="true">📄</span>
+          <div>
+            <strong>Currículum (PDF)</strong>
+            <p class="muted small">Versión actualizada para recruiters y equipos técnicos.</p>
+          </div>
+        </a>
+
+        <a class="link-card" href="https://github.com/kerrifai" target="_blank" rel="noopener">
+          <span class="link-ico" aria-hidden="true">💻</span>
+          <div>
+            <strong>GitHub</strong>
+            <p class="muted small">Repositorios, plantillas y proyectos.</p>
+          </div>
+        </a>
+
+        <a class="link-card" href="https://www.linkedin.com/in/karim-errifai-haddaoui/" target="_blank" rel="noopener">
+          <span class="link-ico" aria-hidden="true">🔗</span>
+          <div>
+            <strong>LinkedIn</strong>
+            <p class="muted small">Perfil profesional y experiencia.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
     <!-- Proyectos -->
     <section class="card" id="proyectos">
       <div class="card-header">
@@ -198,7 +233,6 @@
       </div>
 
       <div class="grid" id="projectsGrid">
-        <!-- Proyecto 1 -->
         <article class="project featured" data-tags="python data tools">
           <div class="project-top">
             <div class="project-title">
@@ -229,7 +263,6 @@
           </div>
         </article>
 
-        <!-- Proyecto 2 -->
         <article class="project" data-tags="python pdf tools">
           <div class="project-top">
             <div class="project-title">
@@ -260,7 +293,6 @@
           </div>
         </article>
 
-        <!-- Ejemplo extra (puedes duplicar y editar) -->
         <article class="project" data-tags="embedded c tools">
           <div class="project-top">
             <div class="project-title">
@@ -370,7 +402,6 @@
     function applyFilters() {
       const q = (searchInput?.value || "").toLowerCase().trim();
       const tag = tagFilter?.value || "all";
-
       let visible = 0;
 
       projects.forEach(p => {
