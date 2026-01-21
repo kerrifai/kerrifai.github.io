@@ -406,16 +406,6 @@ main{
   font-weight:800;
 }
 
-.course-learned{
-  margin:10px 0 0;
-  padding-top:10px;
-  border-top:1px solid var(--line);
-  color:var(--text);
-  line-height:1.55;
-  font-size:13.5px;
-}
-.course-learned strong{ color:var(--accent); font-weight:950; }
-
 /* Projects */
 .filters{
   display:flex;
