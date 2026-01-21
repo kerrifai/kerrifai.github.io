@@ -3,101 +3,251 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tu Nombre — Portfolio</title>
+  <title>Karim Errifai Haddaoui — Portfolio</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <meta name="description" content="Portfolio personal: perfil, CV, LinkedIn y proyectos." />
+  <meta name="description" content="Portfolio de Karim Errifai Haddaoui: perfil, enlaces y proyectos." />
 </head>
 
 <body>
-  <header class="container header">
+  <!-- Top bar -->
+  <nav class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#inicio">Karim Errifai Haddaoui</a>
+
+      <div class="topbar-links">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#enlaces">Enlaces</a>
+        <a href="#proyectos">Proyectos</a>
+      </div>
+
+      <button id="themeBtn" class="icon-btn" type="button" aria-label="Cambiar tema" title="Cambiar tema">
+        🌓
+      </button>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="container header" id="inicio">
     <div class="hero">
-      <img class="avatar" src="assets/img/profile.jpg" alt="Foto de perfil" />
-      <div>
-        <h1>Tu Nombre Apellido</h1>
+      <img class="avatar" src="assets/img/profile.jpg" alt="Foto de perfil de Karim Errifai Haddaoui" />
+
+      <div class="hero-text">
+        <h1>KARIM<br/>ERRIFAI HADDAOUI</h1>
+
         <p class="subtitle">
-          Software embebido · C · FreeRTOS · Linux embebido · I2C/SPI/UART/CAN · Python/Bash
+          Ingeniero en electrónica y software embebido · C/C++ · Python · Linux embebido · I2C/SPI/UART/CAN
         </p>
 
         <div class="actions">
-          <a class="btn primary" href="assets/docs/CV.pdf" target="_blank" rel="noopener">Ver CV (PDF)</a>
-          <a class="btn" href="https://www.linkedin.com/in/TU-LINKEDIN/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn" href="#proyectos">Proyectos</a>
+          <a class="btn primary" href="#proyectos">Ver proyectos</a>
+          <a class="btn" href="https://www.linkedin.com/in/karim-errifai-haddaoui/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/kerrifai" target="_blank" rel="noopener">GitHub</a>
+        </div>
+
+        <div class="quick">
+          <span class="pill">📍 Vigo, Spain</span>
+          <span class="pill">💼 Embedded SW</span>
+          <span class="pill">🛠️ Drivers & RTOS</span>
         </div>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <section class="card" id="perfil">
-      <h2>Perfil</h2>
-      <p>
-        Escribe aquí 5–8 líneas sobre tu perfil: especialidad, tecnologías, tipo de proyectos,
-        y qué aportas (robustez, modularidad, mantenimiento, testing, etc.).
+    <!-- Sobre mí -->
+    <section class="card" id="sobre-mi">
+      <div class="card-header">
+        <h2>Sobre mí</h2>
+        <button id="copyAboutBtn" class="btn small" type="button" title="Copiar texto">
+          Copiar
+        </button>
+      </div>
+
+      <p id="aboutText">
+        A lo largo de mi carrera he desarrollado un perfil sólido como ingeniero en electrónica y software embebido,
+        participando en proyectos tecnológicos de alto nivel en los sectores de automoción, defensa y energía.
+        <br/><br/>
+        Mi trabajo se ha centrado en el diseño y desarrollo de sistemas embebidos, combinando programación en C/Python,
+        diseño electrónico, arquitectura de software por capas y gestión de comunicaciones industriales.
       </p>
 
+      <div class="divider"></div>
+
       <ul class="bullets">
-        <li><strong>Especialidad:</strong> desarrollo embebido estructurado en C y arquitectura modular.</li>
-        <li><strong>RTOS / SDK:</strong> FreeRTOS, ESP-IDF / STM32.</li>
-        <li><strong>Comunicaciones:</strong> I2C, SPI, UART, CAN (diseño y depuración).</li>
-        <li><strong>Automatización:</strong> scripting en Python y Bash.</li>
+        <li><strong>Foco:</strong> software embebido estructurado, modular y mantenible.</li>
+        <li><strong>Comunicaciones:</strong> I2C, SPI, UART, CAN (integración y depuración).</li>
+        <li><strong>Automatización:</strong> scripting en Python y Bash para procesos reproducibles.</li>
+        <li><strong>Buenas prácticas:</strong> control de versiones, documentación y flujos CI/CD cuando aplica.</li>
       </ul>
     </section>
 
+    <!-- Enlaces -->
     <section class="card" id="enlaces">
       <h2>Enlaces</h2>
       <div class="links">
-        <a href="assets/docs/CV.pdf" target="_blank" rel="noopener">📄 CV (PDF)</a>
-        <a href="https://www.linkedin.com/in/karim-errifai-haddaoui/" target="_blank" rel="noopener">💼 LinkedIn</a>
-        <a href="https://github.com/kerrifai" target="_blank" rel="noopener">🐙 GitHub</a>
+        <a class="link-tile" href="https://www.linkedin.com/in/karim-errifai-haddaoui/" target="_blank" rel="noopener">
+          <span class="link-emoji">💼</span>
+          <span class="link-title">LinkedIn</span>
+          <span class="link-sub">Perfil profesional</span>
+        </a>
+
+        <a class="link-tile" href="https://github.com/kerrifai" target="_blank" rel="noopener">
+          <span class="link-emoji">🐙</span>
+          <span class="link-title">GitHub</span>
+          <span class="link-sub">Repositorios y código</span>
+        </a>
       </div>
     </section>
 
+    <!-- Proyectos -->
     <section class="card" id="proyectos">
-      <h2>Proyectos relevantes</h2>
+      <div class="card-header">
+        <h2>Proyectos relevantes</h2>
 
-      <div class="grid">
-        <article class="project">
-          <h3>Proyecto 1</h3>
-          <p>Descripción corta (2 líneas): qué hiciste y con qué.</p>
-          <div class="tags">
-            <span>C</span><span>FreeRTOS</span><span>I2C</span>
+        <div class="filters">
+          <input id="searchInput" class="search" type="search" placeholder="Buscar proyecto..." />
+          <select id="tagFilter" class="select">
+            <option value="all">Todos</option>
+            <option value="python">Python</option>
+            <option value="data">Data</option>
+            <option value="pdf">PDF</option>
+            <option value="tools">Tools</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid" id="projectsGrid">
+        <!-- Proyecto 1 -->
+        <article class="project" data-tags="python data tools">
+          <div class="project-top">
+            <h3>Data Analysis</h3>
+            <span class="badge">Repo</span>
           </div>
+
+          <p>
+            Repositorio de análisis de datos y utilidades en Python para exploración, limpieza y generación de insights.
+            Estructura orientada a reutilización y crecimiento por módulos.
+          </p>
+
+          <div class="tags">
+            <span>Python</span><span>Data</span><span>Tools</span>
+          </div>
+
           <div class="project-links">
-            <a href="https://github.com/kerrifai" target="_blank" rel="noopener">Repo</a>
+            <a class="btn small" href="https://github.com/kerrifai/data-analisys" target="_blank" rel="noopener">Ver repo</a>
+            <button class="btn small ghost" type="button"
+              data-share="https://github.com/kerrifai/data-analisys">Copiar link</button>
           </div>
         </article>
 
-        <article class="project">
-          <h3>Proyecto 2</h3>
-          <p>Descripción corta (2 líneas).</p>
-          <div class="tags">
-            <span>ESP32</span><span>SPI</span><span>Python</span>
+        <!-- Proyecto 2 -->
+        <article class="project" data-tags="python pdf tools">
+          <div class="project-top">
+            <h3>PDF Assistant</h3>
+            <span class="badge">Repo</span>
           </div>
-          <div class="project-links">
-            <a href="https://github.com/kerrifai?tab=repositories" target="_blank" rel="noopener">Repo</a>
-          </div>
-        </article>
 
-        <article class="project">
-          <h3>Proyecto 3</h3>
-          <p>Descripción corta (2 líneas).</p>
+          <p>
+            Asistente para trabajar con documentos PDF (extracción, organización y automatización de tareas),
+            con enfoque en flujo práctico y extensible.
+          </p>
+
           <div class="tags">
-            <span>Linux</span><span>Bash</span><span>CI</span>
+            <span>Python</span><span>PDF</span><span>Tools</span>
           </div>
+
           <div class="project-links">
-            <a href="https://github.com/kerrifai?tab=repositories" target="_blank" rel="noopener">Repo</a>
+            <a class="btn small" href="https://github.com/kerrifai/pdf-assistant" target="_blank" rel="noopener">Ver repo</a>
+            <button class="btn small ghost" type="button"
+              data-share="https://github.com/kerrifai/pdf-assistant">Copiar link</button>
           </div>
         </article>
       </div>
+
+      <p class="muted small-note" id="resultsNote"></p>
     </section>
 
     <footer class="footer">
-      <p>© <span id="year"></span> Tu Nombre · GitHub Pages</p>
+      <p>© <span id="year"></span> Karim Errifai Haddaoui · GitHub Pages</p>
     </footer>
   </main>
 
   <script>
+    // Año
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Tema (oscuro/claro) - simple, guardado en localStorage
+    const themeBtn = document.getElementById("themeBtn");
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) document.documentElement.setAttribute("data-theme", savedTheme);
+
+    themeBtn.addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-theme") || "dark";
+      const next = current === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    });
+
+    // Copiar "Sobre mí"
+    const copyAboutBtn = document.getElementById("copyAboutBtn");
+    const aboutText = document.getElementById("aboutText");
+    copyAboutBtn.addEventListener("click", async () => {
+      const text = aboutText.innerText.trim();
+      try {
+        await navigator.clipboard.writeText(text);
+        copyAboutBtn.textContent = "Copiado ✓";
+        setTimeout(() => (copyAboutBtn.textContent = "Copiar"), 1200);
+      } catch {
+        alert("No se pudo copiar. Prueba desde otro navegador.");
+      }
+    });
+
+    // Copiar links de proyectos
+    document.querySelectorAll("button[data-share]").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const url = btn.getAttribute("data-share");
+        try {
+          await navigator.clipboard.writeText(url);
+          btn.textContent = "Copiado ✓";
+          setTimeout(() => (btn.textContent = "Copiar link"), 1200);
+        } catch {
+          alert("No se pudo copiar el link.");
+        }
+      });
+    });
+
+    // Filtro + búsqueda
+    const searchInput = document.getElementById("searchInput");
+    const tagFilter = document.getElementById("tagFilter");
+    const projects = Array.from(document.querySelectorAll("#projectsGrid .project"));
+    const resultsNote = document.getElementById("resultsNote");
+
+    function applyFilters() {
+      const q = (searchInput.value || "").toLowerCase().trim();
+      const tag = tagFilter.value;
+
+      let visible = 0;
+      projects.forEach(p => {
+        const title = p.querySelector("h3")?.innerText.toLowerCase() || "";
+        const desc = p.querySelector("p")?.innerText.toLowerCase() || "";
+        const tags = (p.getAttribute("data-tags") || "").toLowerCase();
+
+        const matchesText = !q || title.includes(q) || desc.includes(q);
+        const matchesTag = (tag === "all") || tags.includes(tag);
+
+        const show = matchesText && matchesTag;
+        p.style.display = show ? "" : "none";
+        if (show) visible++;
+      });
+
+      resultsNote.textContent = visible === projects.length
+        ? ""
+        : `Mostrando ${visible} de ${projects.length} proyectos.`;
+    }
+
+    searchInput.addEventListener("input", applyFilters);
+    tagFilter.addEventListener("change", applyFilters);
+    applyFilters();
   </script>
 </body>
 </html>
