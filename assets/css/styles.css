@@ -182,8 +182,8 @@ html{ scroll-behavior:smooth; }
   box-shadow: var(--shadow2);
 
   position: relative;
-  left: 16px;   /* derecha */
-  top: 12px;    /* abajo */
+  left: 25px;   /* derecha */
+  top: 20px;    /* abajo */
 }
 
 
