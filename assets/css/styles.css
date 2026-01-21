@@ -174,8 +174,8 @@ html{ scroll-behavior:smooth; }
 .hero-left{ display:flex; flex-direction:column; gap:14px; }
 
 .avatar{
-  width:124px;
-  height:124px;
+  width:200px;
+  height:200px;
   border-radius:22px;
   object-fit:cover;
   border:1px solid var(--line);
