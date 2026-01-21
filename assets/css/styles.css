@@ -182,38 +182,6 @@ html{ scroll-behavior:smooth; }
   box-shadow: var(--shadow2);
 }
 
-.status{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 12px;
-  border-radius:14px;
-  border:1px solid var(--line);
-  background: color-mix(in srgb, var(--card) 55%, transparent);
-  color: var(--muted);
-  font-size:13px;
-}
-
-.pulse{
-  width:10px; height:10px;
-  border-radius:999px;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 60%, transparent);
-  position:relative;
-}
-.pulse::after{
-  content:"";
-  position:absolute;
-  inset:-6px;
-  border-radius:999px;
-  border:1px solid color-mix(in srgb, var(--accent) 35%, transparent);
-  animation: ping 1.6s ease-out infinite;
-}
-@keyframes ping{
-  0%{ transform: scale(.55); opacity:.9; }
-  100%{ transform: scale(1.7); opacity:0; }
-}
-
 .hero-right{ display:flex; flex-direction:column; }
 
 .title{
@@ -223,28 +191,12 @@ html{ scroll-behavior:smooth; }
   line-height:1.03;
 }
 
-.kicker{
-  margin-top:10px;
-  display:flex;
-  gap:10px;
-  align-items:center;
-  color:var(--muted);
-  font-size:13px;
-}
-
-.kicker .dot{
-  width:6px; height:6px;
-  border-radius:999px;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-}
-
 .subtitle{
   margin:12px 0 0;
   color:var(--muted);
   line-height:1.6;
   font-size:15px;
 }
-.subtitle strong{ color:var(--text); font-weight:800; }
 
 /* Buttons */
 .actions{
@@ -362,23 +314,6 @@ main{
 .lead{ margin:10px 0 0; color:var(--muted); line-height:1.75; }
 .muted{ color:var(--muted); }
 .small{ font-size:13px; }
-.mini-title{ margin:0; font-size:14px; letter-spacing:.2px; }
-
-.divider{ height:1px; background:var(--line); margin:14px 0; }
-
-.two-col{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:16px;
-  margin-top:6px;
-}
-
-.bullets{
-  margin:10px 0 0;
-  padding-left:18px;
-  color:var(--muted);
-}
-.bullets li{ margin:8px 0; }
 
 /* Skills */
 .skill-grid{
@@ -420,34 +355,66 @@ main{
 
 .skill h3{ margin:0; font-size:15px; font-weight:900; }
 
-/* Links tiles */
-.links{
+/* ✅ Cursos */
+.courses-grid{
   display:grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap:12px;
   margin-top:12px;
 }
 
-.link-tile{
+.course-item{
   border:1px solid var(--line);
   border-radius:16px;
   padding:16px;
-  display:grid;
-  gap:6px;
   background: color-mix(in srgb, var(--card) 55%, transparent);
   transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
 }
 
-.link-tile:hover{
+.course-item:hover{
   transform: translateY(-4px);
   box-shadow: var(--shadow2);
   border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
 }
 
-.link-emoji{ font-size:18px; }
-.link-title{ font-weight:900; }
-.link-sub{ color:var(--muted); font-size:13px; }
-.link-cta{ color: color-mix(in srgb, var(--accent) 92%, var(--text)); font-weight:800; font-size:13px; }
+.course-top{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.course-ico{
+  width:34px; height:34px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background: color-mix(in srgb, var(--card) 35%, transparent);
+}
+
+.course-item h3{
+  margin:0;
+  font-size:15px;
+  font-weight:950;
+}
+
+.course-meta{
+  margin:8px 0 10px;
+  font-size:12.8px;
+  color: color-mix(in srgb, var(--accent) 88%, var(--text));
+  font-weight:800;
+}
+
+.course-learned{
+  margin:10px 0 0;
+  padding-top:10px;
+  border-top:1px solid var(--line);
+  color:var(--text);
+  line-height:1.55;
+  font-size:13.5px;
+}
+.course-learned strong{ color:var(--accent); font-weight:950; }
 
 /* Projects */
 .filters{
@@ -599,9 +566,8 @@ main{
 @media (max-width: 980px){
   .topbar-links{ display:none; }
   .hero{ grid-template-columns: 1fr; }
-  .two-col{ grid-template-columns: 1fr; }
   .skill-grid{ grid-template-columns: 1fr; }
+  .courses-grid{ grid-template-columns: 1fr; }
   .grid{ grid-template-columns: 1fr; }
-  .links{ grid-template-columns: 1fr; }
   .search{ min-width: 100%; }
 }
