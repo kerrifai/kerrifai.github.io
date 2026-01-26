@@ -1,15 +1,20 @@
 <!doctype html>
-<html lang="es" data-theme="dark">
+<html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Karim Errifai Haddaoui — Portfolio</title>
   <meta name="description" content="Portfolio de Karim Errifai Haddaoui: Embedded Systems, Embedded Linux, C/C++, drivers y comunicaciones industriales." />
-  <link rel="stylesheet" href="assets/css/styles.css?v=2" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
 </head>
 
 <body>
-  <!-- Premium background -->
+  <!-- Scroll progress -->
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar" id="scrollBar"></div>
+  </div>
+
+  <!-- Soft background -->
   <div class="bg" aria-hidden="true"></div>
   <div class="blob a" aria-hidden="true"></div>
   <div class="blob b" aria-hidden="true"></div>
@@ -20,59 +25,76 @@
     <div class="container topbar-inner">
       <a class="brand" href="#inicio" aria-label="Ir al inicio">
         <span class="brand-dot" aria-hidden="true"></span>
-        <span>Karim Errifai Haddaoui</span>
+        <span class="brand-text">Karim Errifai Haddaoui</span>
       </a>
 
-      <div class="topbar-links" role="navigation" aria-label="Secciones">
+      <button id="menuBtn" class="icon-btn menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false">
+        ☰
+      </button>
+
+      <div id="navLinks" class="topbar-links" role="navigation" aria-label="Secciones">
         <a href="#sobre-mi">Sobre mí</a>
         <a href="#skills">Skills</a>
         <a href="#cursos">Cursos</a>
         <a href="#proyectos">Proyectos</a>
-      </div>
-
-      <div class="topbar-actions">
-        <button id="themeBtn" class="icon-btn" type="button" aria-label="Cambiar tema" title="Cambiar tema">
-          🌓
-        </button>
+        <a href="#contacto">Contacto</a>
       </div>
     </div>
   </nav>
 
-  <!-- Header / Hero -->
+  <!-- Hero -->
   <header class="container header" id="inicio">
-    <div class="hero">
+    <div class="hero reveal">
       <div class="hero-left">
-        <!-- IMPORTANTE: verifica que exista EXACTAMENTE assets/img/profile.png -->
-        <img class="avatar" src="assets/img/profile.png?v=2" alt="Foto de perfil de Karim Errifai Haddaoui" />
+        <div class="avatar-wrap">
+          <img class="avatar" src="assets/img/profile.png?v=3" alt="Foto de perfil de Karim Errifai Haddaoui" />
+        </div>
+
+        <div class="hero-mini">
+          <span class="pill">📍 Vigo, Spain</span>
+          <span class="pill">💼 Embedded SW</span>
+          <span class="pill">🔧 C · RTOS · Drivers</span>
+        </div>
       </div>
 
       <div class="hero-right">
-        <h1 class="title">
-          KARIM ERRIFAI HADDAOUI
-        </h1>
+        <p class="eyebrow">Embedded Systems · Embedded Linux · Industrial Protocols</p>
+
+        <h1 class="title">KARIM ERRIFAI HADDAOUI</h1>
 
         <p class="subtitle">
-          Ingeniero en electronica industrial y automática
+          Ingeniero en electrónica industrial y automática. Desarrollo firmware en C, drivers y comunicaciones industriales
+          (I2C/SPI/UART/CAN), automatización con Python/Bash y enfoque en arquitectura modular escalable.
         </p>
 
         <div class="chips" aria-label="Tecnologías destacadas">
-          <span class="chip">⚙️ C/C++</span>
-          <span class="chip">🐧 Embedded Linux</span>
-          <span class="chip">🔌 I2C · SPI · UART · CAN</span>
-          <span class="chip">🛠️ Python · Bash</span>
-          <span class="chip">🤖 ML · IA</span>
+          <button class="chip chip-btn" type="button" data-chip="c">⚙️ C/C++</button>
+          <button class="chip chip-btn" type="button" data-chip="linux">🐧 Embedded Linux</button>
+          <button class="chip chip-btn" type="button" data-chip="comms">🔌 I2C · SPI · UART · CAN</button>
+          <button class="chip chip-btn" type="button" data-chip="py">🛠️ Python · Bash</button>
+          <button class="chip chip-btn" type="button" data-chip="ai">🤖 ML · IA</button>
         </div>
 
         <div class="actions">
-          <a class="btn" href="assets/docs/CV_Karim.pdf" target="_blank" rel="noopener">CV</a>
-          <a class="btn" href="https://www.linkedin.com/in/karim-errifai-haddaoui/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn" href="https://github.com/kerrifai" target="_blank" rel="noopener">GitHub</a>
           <a class="btn primary" href="#proyectos">Ver proyectos</a>
+          <a class="btn" href="assets/docs/CV_Karim.pdf" target="_blank" rel="noopener">Ver CV</a>
+          <a class="btn" href="https://www.linkedin.com/in/karim-errifai-haddaoui/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="https://github.com/kerrifai" target="_blank" rel="noopener">GitHub</a>
         </div>
 
-        <div class="quick" aria-label="Información rápida">
-          <span class="pill">📍 Vigo, Spain</span>
-          <span class="pill">💼 Embedded SW</span>
+        <div class="hero-stats" aria-label="Resumen rápido">
+          <div class="stat">
+            <p class="stat-k" data-counter="3">0</p>
+            <p class="stat-l">Sectores (auto/def/energía)</p>
+          </div>
+          <div class="stat">
+            <p class="stat-k" data-counter="4">0</p>
+            <p class="stat-l">Buses industriales</p>
+          </div>
+          <div class="stat">
+            <p class="stat-k" data-counter="2">0</p>
+            <p class="stat-l">Scripting (Python/Bash)</p>
+          </div>
         </div>
       </div>
     </div>
@@ -80,77 +102,114 @@
 
   <main class="container">
     <!-- Sobre mí -->
-    <section class="card" id="sobre-mi">
+    <section class="card reveal" id="sobre-mi">
       <div class="card-header">
         <div>
           <h2>Sobre mí</h2>
+          <p class="muted small">Perfil orientado a producto, validación y mantenimiento.</p>
         </div>
+        <button id="copyAboutBtn" class="btn small" type="button">Copiar</button>
       </div>
 
       <p id="aboutText" class="lead">
         A lo largo de mi carrera he desarrollado un perfil sólido como ingeniero en electrónica y software embebido,
-        participando en proyectos tecnológicos en sectores como automoción, defensa y energía. Mi trabajo se centra 
-        en el diseño y desarrollo de sistemas embebidos, combinando programación en C/Python, arquitectura de software 
+        participando en proyectos tecnológicos en sectores como automoción, defensa y energía. Mi trabajo se centra
+        en el diseño y desarrollo de sistemas embebidos, combinando programación en C/Python, arquitectura de software
         por capas y gestión de comunicaciones industriales.
       </p>
+
+      <div class="callout">
+        <p class="callout-title">💡 Qué ofrezco</p>
+        <p class="muted">
+          Firmware robusto, drivers limpios, trazabilidad de pruebas y automatización para reducir trabajo manual.
+        </p>
+      </div>
     </section>
 
     <!-- Skills -->
-    <section class="card" id="skills">
+    <section class="card reveal" id="skills">
       <div class="card-header">
         <div>
           <h2>Skills</h2>
+          <p class="muted small">Haz click en una tarjeta para ver detalles.</p>
         </div>
       </div>
 
       <div class="skill-grid">
-        <article class="skill">
+        <article class="skill js-tilt" tabindex="0">
           <div class="skill-top">
             <span class="skill-icon">⚙️</span>
             <h3>Firmware en C</h3>
           </div>
-          <p class="muted">
-            Diseño modular, drivers, control de periféricos, manejo de memoria y APIs estables.
-          </p>
+          <p class="muted">Diseño modular, drivers, control de periféricos, APIs estables.</p>
+
+          <div class="skill-more" aria-hidden="true">
+            <ul class="mini-list">
+              <li>Interfaces claras (HAL/Driver/Service/App)</li>
+              <li>Gestión de memoria y errores consistente</li>
+              <li>Listo para unit tests + mocks</li>
+            </ul>
+          </div>
+
           <div class="tags">
             <span>C</span><span>C++</span><span>Drivers</span><span>RTOS-ready</span>
           </div>
         </article>
 
-        <article class="skill">
+        <article class="skill js-tilt" tabindex="0">
           <div class="skill-top">
             <span class="skill-icon">🔌</span>
             <h3>Comunicaciones</h3>
           </div>
-          <p class="muted">
-            Integración y depuración de buses industriales y periféricos, con trazas y validación.
-          </p>
+          <p class="muted">Integración y depuración de buses con trazas y validación.</p>
+
+          <div class="skill-more" aria-hidden="true">
+            <ul class="mini-list">
+              <li>I2C/SPI/UART: timings, buffers, fallos típicos</li>
+              <li>CAN: diagnóstico, tramas, robustez</li>
+              <li>Logging para reproducir issues de campo</li>
+            </ul>
+          </div>
+
           <div class="tags">
             <span>I2C</span><span>SPI</span><span>UART</span><span>CAN</span>
           </div>
         </article>
 
-        <article class="skill">
+        <article class="skill js-tilt" tabindex="0">
           <div class="skill-top">
             <span class="skill-icon">🐧</span>
             <h3>Embedded Linux</h3>
           </div>
-          <p class="muted">
-            Entorno Linux para sistemas embebidos, tooling, automatización y soporte a despliegues.
-          </p>
+          <p class="muted">Tooling, automatización y soporte para despliegues.</p>
+
+          <div class="skill-more" aria-hidden="true">
+            <ul class="mini-list">
+              <li>Entornos reproducibles y scripts de build</li>
+              <li>Debugging con herramientas de sistema</li>
+              <li>Buenas prácticas de empaquetado</li>
+            </ul>
+          </div>
+
           <div class="tags">
             <span>Linux</span><span>Tooling</span><span>Debug</span><span>Deploy</span>
           </div>
         </article>
 
-        <article class="skill">
+        <article class="skill js-tilt" tabindex="0">
           <div class="skill-top">
             <span class="skill-icon">🛠️</span>
             <h3>Automatización</h3>
           </div>
-          <p class="muted">
-            Scripts y herramientas para builds reproducibles, data utils y pipelines de soporte.
-          </p>
+          <p class="muted">Scripts para testing, pipelines de soporte y utilidades.</p>
+
+          <div class="skill-more" aria-hidden="true">
+            <ul class="mini-list">
+              <li>CLIs simples para acelerar el día a día</li>
+              <li>Parsing de logs y reportes</li>
+              <li>Checks de calidad/format/lint</li>
+            </ul>
+          </div>
           <div class="tags">
             <span>Python</span><span>Bash</span><span>CLI tools</span><span>Reproducible</span>
           </div>
@@ -159,10 +218,11 @@
     </section>
 
     <!-- Cursos -->
-    <section class="card" id="cursos">
+    <section class="card reveal" id="cursos">
       <div class="card-header">
         <div>
           <h2>Cursos y Certificaciones</h2>
+          <p class="muted small">Formato breve, orientado a impacto.</p>
         </div>
       </div>
 
@@ -170,42 +230,38 @@
         <article class="course-item">
           <div class="course-top">
             <h3>AI Engineering — IBM</h3>
+            <span class="badge">Cert</span>
           </div>
-          <p class="course-meta">Machine Learning · Statitics · Generative IA </p>
-          <p class="muted">
-            Ingeniería aplicada a sistemas de IA cubriendo el ciclo completo: preparación de datos, diseño y evaluación
-            de modelos, y despliegue en entornos reales.
-          </p>
+          <p class="course-meta">ML · Estadística · GenAI</p>
+          <p class="muted">Ciclo completo: datos → modelo → evaluación → despliegue.</p>
         </article>
 
         <article class="course-item">
           <div class="course-top">
             <h3>Prompting Essentials — Google</h3>
+            <span class="badge">Cert</span>
           </div>
-          <p class="course-meta">Prompt design </p>
-          <p class="muted">
-            Diseño de prompts eficaces para modelos de lenguaje, orientado a respuestas precisas, consistentes y alineadas
-            con objetivos técnicos.
-          </p>
+          <p class="course-meta">Prompt design</p>
+          <p class="muted">Prompts consistentes para resultados técnicos y medibles.</p>
         </article>
 
         <article class="course-item">
           <div class="course-top">
             <h3>IT Automation with Python</h3>
+            <span class="badge">Cert</span>
           </div>
-          <p class="course-meta">Python · Scripting · OS </p>
-          <p class="muted">
-            Automatización de tareas IT mediante Python:  creación de scripts robustos, automatización de procesos repetitivo, gestión de ficheros y resolución automatizada de incidencias.
-          </p>
+          <p class="course-meta">Python · Scripting · OS</p>
+          <p class="muted">Scripts robustos: ficheros, procesos, automatización y soporte.</p>
         </article>
       </div>
     </section>
 
     <!-- Proyectos -->
-    <section class="card" id="proyectos">
+    <section class="card reveal" id="proyectos">
       <div class="card-header">
         <div>
           <h2>Proyectos relevantes</h2>
+          <p class="muted small">Busca por nombre o filtra por tag. Click en un proyecto para expandir.</p>
         </div>
 
         <div class="filters">
@@ -223,7 +279,7 @@
       </div>
 
       <div class="grid" id="projectsGrid">
-        <article class="project featured" data-tags="python data tools">
+        <article class="project featured reveal" data-tags="python data tools" tabindex="0">
           <div class="project-top">
             <div class="project-title">
               <h3>Data Analysis</h3>
@@ -237,11 +293,14 @@
             Enfocado en reutilización y crecimiento por módulos.
           </p>
 
-          <ul class="project-points">
-            <li>Estructura escalable por capas / módulos</li>
-            <li>Preprocesado y EDA reproducibles</li>
-            <li>Utilidades listas para reutilizar en nuevos datasets</li>
-          </ul>
+          <details class="details">
+            <summary>Ver highlights</summary>
+            <ul class="project-points">
+              <li>Estructura escalable por capas / módulos</li>
+              <li>Preprocesado y EDA reproducibles</li>
+              <li>Utilidades listas para reutilizar en nuevos datasets</li>
+            </ul>
+          </details>
 
           <div class="tags">
             <span>Python</span><span>Data</span><span>Tools</span>
@@ -253,7 +312,7 @@
           </div>
         </article>
 
-        <article class="project" data-tags="python pdf tools">
+        <article class="project reveal" data-tags="python pdf tools" tabindex="0">
           <div class="project-top">
             <div class="project-title">
               <h3>PDF Assistant</h3>
@@ -263,15 +322,18 @@
           </div>
 
           <p>
-            Asistente para trabajar con documentos PDF (extracción, organización y automatización de tareas),
-            con un flujo extensible y orientado a productividad.
+            Asistente para trabajar con PDF (extracción, organización y automatización),
+            con un flujo extensible orientado a productividad.
           </p>
 
-          <ul class="project-points">
-            <li>Procesado de PDFs y organización automatizada</li>
-            <li>Pipeline ampliable por módulos</li>
-            <li>Enfoque en utilidad real y mantenimiento</li>
-          </ul>
+          <details class="details">
+            <summary>Ver highlights</summary>
+            <ul class="project-points">
+              <li>Procesado y organización automatizada</li>
+              <li>Pipeline ampliable por módulos</li>
+              <li>Enfoque en utilidad real y mantenimiento</li>
+            </ul>
+          </details>
 
           <div class="tags">
             <span>Python</span><span>PDF</span><span>Tools</span>
@@ -283,7 +345,7 @@
           </div>
         </article>
 
-        <article class="project" data-tags="embedded c tools">
+        <article class="project reveal" data-tags="embedded c tools" tabindex="0">
           <div class="project-top">
             <div class="project-title">
               <h3>Embedded Drivers Template</h3>
@@ -293,15 +355,18 @@
           </div>
 
           <p>
-            Plantilla de arquitectura modular para drivers (I2C/SPI/UART), servicios y aplicación.
-            Ideal para proyectos escalables y mantenibles.
+            Plantilla modular para drivers (I2C/SPI/UART), servicios y aplicación.
+            Preparada para crecer, testear y mantener.
           </p>
 
-          <ul class="project-points">
-            <li>HAL/Drivers desacoplados con interfaces</li>
-            <li>Preparado para testing y mocks</li>
-            <li>Estructura profesional de repositorio</li>
-          </ul>
+          <details class="details">
+            <summary>Ver highlights</summary>
+            <ul class="project-points">
+              <li>HAL/Drivers desacoplados con interfaces</li>
+              <li>Preparado para testing y mocks</li>
+              <li>Estructura profesional de repositorio</li>
+            </ul>
+          </details>
 
           <div class="tags">
             <span>Embedded</span><span>C</span><span>Drivers</span>
@@ -317,12 +382,12 @@
       <p class="muted small-note" id="resultsNote"></p>
     </section>
 
-    <!-- CTA -->
-    <section class="cta" aria-label="Llamada a la acción">
+    <!-- Contacto -->
+    <section class="cta reveal" id="contacto" aria-label="Contacto">
       <div class="cta-left">
         <h3>¿Hablamos?</h3>
         <p class="muted">
-          Si buscas un perfil embedded orientado a producto, puedo aportar valor desde el diseño hasta la depuración en campo.
+          Si buscas un perfil embedded orientado a producto, puedo aportar valor desde el diseño hasta la validación y depuración.
         </p>
       </div>
       <div class="cta-right">
@@ -336,34 +401,50 @@
     </footer>
   </main>
 
+  <!-- Back to top -->
+  <button id="toTop" class="to-top" type="button" aria-label="Volver arriba" title="Volver arriba">↑</button>
+
   <script>
     // Año
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Tema (oscuro/claro) - guardado en localStorage
-    const themeBtn = document.getElementById("themeBtn");
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) document.documentElement.setAttribute("data-theme", savedTheme);
-
-    themeBtn.addEventListener("click", () => {
-      const current = document.documentElement.getAttribute("data-theme") || "dark";
-      const next = current === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", next);
-      localStorage.setItem("theme", next);
+    // Menú móvil
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    menuBtn?.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(isOpen));
+      menuBtn.textContent = isOpen ? "✕" : "☰";
     });
+
+    // Scroll progress + back-to-top
+    const scrollBar = document.getElementById("scrollBar");
+    const toTop = document.getElementById("toTop");
+
+    function onScroll() {
+      const doc = document.documentElement;
+      const total = doc.scrollHeight - doc.clientHeight;
+      const p = total > 0 ? (doc.scrollTop / total) : 0;
+      if (scrollBar) scrollBar.style.transform = `scaleX(${p})`;
+      if (toTop) toTop.classList.toggle("show", doc.scrollTop > 700);
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    toTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
     // Copiar "Sobre mí"
     const copyAboutBtn = document.getElementById("copyAboutBtn");
     const aboutText = document.getElementById("aboutText");
-
     copyAboutBtn?.addEventListener("click", async () => {
       const text = (aboutText?.innerText || "").trim();
       try {
         await navigator.clipboard.writeText(text);
+        const prev = copyAboutBtn.textContent;
         copyAboutBtn.textContent = "Copiado ✓";
-        setTimeout(() => (copyAboutBtn.textContent = "Copiar"), 1200);
+        setTimeout(() => (copyAboutBtn.textContent = prev), 1200);
       } catch {
-        alert("No se pudo copiar. Prueba desde otro navegador.");
+        alert("No se pudo copiar.");
       }
     });
 
@@ -410,28 +491,79 @@
       const total = projects.length;
       resultsNote.textContent = (visible === total) ? "" : `Mostrando ${visible} de ${total} proyectos.`;
     }
-
     searchInput?.addEventListener("input", applyFilters);
     tagFilter?.addEventListener("change", applyFilters);
     applyFilters();
 
-    // Menú activo según scroll (IntersectionObserver)
-    const navLinks = Array.from(document.querySelectorAll(".topbar-links a"));
-    const sections = navLinks
-      .map(a => document.querySelector(a.getAttribute("href")))
-      .filter(Boolean);
+    // Nav activo según scroll
+    const navAs = Array.from(document.querySelectorAll(".topbar-links a"));
+    const sections = navAs.map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
 
-    const obs = new IntersectionObserver((entries) => {
+    const obsNav = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (!e.isIntersecting) return;
-        navLinks.forEach(a => a.classList.remove("active"));
+        navAs.forEach(a => a.classList.remove("active"));
         const id = `#${e.target.id}`;
-        const active = navLinks.find(a => a.getAttribute("href") === id);
+        const active = navAs.find(a => a.getAttribute("href") === id);
         if (active) active.classList.add("active");
       });
     }, { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 });
+    sections.forEach(s => obsNav.observe(s));
 
-    sections.forEach(s => obs.observe(s));
+    // Reveal on scroll
+    const revealEls = Array.from(document.querySelectorAll(".reveal"));
+    const obsReveal = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add("in");
+          obsReveal.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => obsReveal.observe(el));
+
+    // Skill cards: toggle details on click/enter/space
+    document.querySelectorAll(".skill").forEach(card => {
+      const toggle = () => card.classList.toggle("open");
+      card.addEventListener("click", toggle);
+      card.addEventListener("keydown", (ev) => {
+        if (ev.key === "Enter" || ev.key === " ") {
+          ev.preventDefault();
+          toggle();
+        }
+      });
+    });
+
+    // Counters
+    const counters = Array.from(document.querySelectorAll("[data-counter]"));
+    const obsCounter = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const end = Number(el.getAttribute("data-counter") || "0");
+        let cur = 0;
+        const step = Math.max(1, Math.ceil(end / 20));
+        const t = setInterval(() => {
+          cur += step;
+          if (cur >= end) { cur = end; clearInterval(t); }
+          el.textContent = String(cur);
+        }, 30);
+        obsCounter.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(c => obsCounter.observe(c));
+
+    // Chips: scroll to projects and prefiltrar
+    document.querySelectorAll(".chip-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const key = btn.getAttribute("data-chip");
+        const map = { c: "c", linux: "embedded", comms: "embedded", py: "python", ai: "data" };
+        const val = map[key] || "all";
+        if (tagFilter) tagFilter.value = val;
+        applyFilters();
+        document.querySelector("#proyectos")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
   </script>
 </body>
 </html>
