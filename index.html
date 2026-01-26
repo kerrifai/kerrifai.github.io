@@ -81,21 +81,6 @@
           <a class="btn" href="https://www.linkedin.com/in/karim-errifai-haddaoui/" target="_blank" rel="noopener">LinkedIn</a>
           <a class="btn ghost" href="https://github.com/kerrifai" target="_blank" rel="noopener">GitHub</a>
         </div>
-
-        <div class="hero-stats" aria-label="Resumen rápido">
-          <div class="stat">
-            <p class="stat-k" data-counter="3">0</p>
-            <p class="stat-l">Sectores (auto/def/energía)</p>
-          </div>
-          <div class="stat">
-            <p class="stat-k" data-counter="4">0</p>
-            <p class="stat-l">Buses industriales</p>
-          </div>
-          <div class="stat">
-            <p class="stat-k" data-counter="2">0</p>
-            <p class="stat-l">Scripting (Python/Bash)</p>
-          </div>
-        </div>
       </div>
     </div>
   </header>
@@ -117,13 +102,6 @@
         en el diseño y desarrollo de sistemas embebidos, combinando programación en C/Python, arquitectura de software
         por capas y gestión de comunicaciones industriales.
       </p>
-
-      <div class="callout">
-        <p class="callout-title">💡 Qué ofrezco</p>
-        <p class="muted">
-          Firmware robusto, drivers limpios, trazabilidad de pruebas y automatización para reducir trabajo manual.
-        </p>
-      </div>
     </section>
 
     <!-- Skills -->
@@ -533,25 +511,6 @@
         }
       });
     });
-
-    // Counters
-    const counters = Array.from(document.querySelectorAll("[data-counter]"));
-    const obsCounter = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        const el = e.target;
-        const end = Number(el.getAttribute("data-counter") || "0");
-        let cur = 0;
-        const step = Math.max(1, Math.ceil(end / 20));
-        const t = setInterval(() => {
-          cur += step;
-          if (cur >= end) { cur = end; clearInterval(t); }
-          el.textContent = String(cur);
-        }, 30);
-        obsCounter.unobserve(el);
-      });
-    }, { threshold: 0.6 });
-    counters.forEach(c => obsCounter.observe(c));
 
     // Chips: scroll to projects and prefiltrar
     document.querySelectorAll(".chip-btn").forEach(btn => {
