@@ -1,344 +1,569 @@
 <!doctype html>
-<html lang="es" data-theme="dark">
+<html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Karim Errifai Haddaoui — Portfolio</title>
-  <meta name="description" content="Embedded Systems, Embedded Linux, Industrial Protocols (I2C/SPI/UART/CAN), automation with Python/Bash." />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta name="description" content="Portfolio de Karim Errifai Haddaoui: Embedded Systems, Embedded Linux, C/C++, drivers y comunicaciones industriales." />
+  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
 </head>
 
 <body>
-  <!-- Background -->
+  <!-- Scroll progress -->
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar" id="scrollBar"></div>
+  </div>
+
+  <!-- Soft background -->
   <div class="bg" aria-hidden="true"></div>
   <div class="blob a" aria-hidden="true"></div>
   <div class="blob b" aria-hidden="true"></div>
   <div class="blob c" aria-hidden="true"></div>
 
-  <!-- Topbar -->
+  <!-- Top bar -->
   <nav class="topbar" aria-label="Navegación principal">
     <div class="container topbar-inner">
       <a class="brand" href="#inicio" aria-label="Ir al inicio">
         <span class="brand-dot" aria-hidden="true"></span>
-        <span>Karim Errifai Haddaoui</span>
+        <span class="brand-text">Karim Errifai Haddaoui</span>
       </a>
 
-      <div class="topbar-links" role="navigation" aria-label="Secciones">
+      <button id="menuBtn" class="icon-btn menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false">
+        ☰
+      </button>
+
+      <div id="navLinks" class="topbar-links" role="navigation" aria-label="Secciones">
         <a href="#sobre-mi">Sobre mí</a>
         <a href="#skills">Skills</a>
         <a href="#cursos">Cursos</a>
         <a href="#proyectos">Proyectos</a>
         <a href="#contacto">Contacto</a>
       </div>
-
-      <button id="themeBtn" class="icon-btn" type="button" aria-label="Cambiar tema" title="Cambiar tema">
-        🌓
-      </button>
     </div>
   </nav>
 
-  <main id="inicio" class="container">
-    <!-- HERO -->
-    <section class="hero" aria-label="Presentación">
-      <div class="hero-card">
-        <div class="hero-left">
-          <div class="avatar-wrap">
-            <img class="avatar" src="assets/img/profile.jpg" alt="Foto de perfil" loading="lazy">
-          </div>
-
-          <div class="badges">
-            <span class="badge">
-              <span class="dot dot-primary" aria-hidden="true"></span>
-              Vigo, Spain
-            </span>
-            <span class="badge">
-              <span class="dot dot-green" aria-hidden="true"></span>
-              Embedded SW
-            </span>
-            <span class="badge">
-              <span class="dot dot-orange" aria-hidden="true"></span>
-              C · RTOS · Drivers
-            </span>
-          </div>
+  <!-- Hero -->
+  <header class="container header" id="inicio">
+    <div class="hero reveal">
+      <div class="hero-left">
+        <div class="avatar-wrap">
+          <img class="avatar" src="assets/img/profile.png?v=3" alt="Foto de perfil de Karim Errifai Haddaoui" />
         </div>
 
-        <div class="hero-right">
-          <div class="kicker">
-            Embedded Systems · Embedded Linux · Industrial Protocols
-          </div>
-
-          <h1 class="title">KARIM ERRIFAI HADDAOUI</h1>
-
-          <p class="subtitle">
-            Ingeniero en electrónica industrial y automática. Desarrollo firmware en C, drivers y
-            comunicaciones industriales (I2C/SPI/UART/CAN), automatización con Python/Bash y
-            enfoque en arquitectura modular escalable.
-          </p>
-
-          <div class="chips" aria-label="Tecnologías destacadas">
-            <span class="chip chip-cpp">⚙️ C/C++</span>
-            <span class="chip chip-linux">🐧 Embedded Linux</span>
-            <span class="chip chip-bus">🔌 I2C · SPI · UART · CAN</span>
-            <span class="chip chip-auto">🛠️ Python · Bash</span>
-            <span class="chip chip-ml">🤖 ML · IA</span>
-          </div>
-
-          <div class="cta">
-            <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
-            <a class="btn btn-secondary" href="assets/docs/CV_Karim_Errifai_Haddaoui.pdf" target="_blank" rel="noopener">Ver CV</a>
-            <a class="btn btn-neutral" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn btn-neutral" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
-          </div>
-
-          <div class="stats" aria-label="Resumen rápido">
-            <div class="stat">
-              <div class="stat-num">3</div>
-              <div class="stat-label">Sectores (auto/def/energía)</div>
-            </div>
-            <div class="stat">
-              <div class="stat-num">4</div>
-              <div class="stat-label">Buses industriales</div>
-            </div>
-            <div class="stat">
-              <div class="stat-num">2</div>
-              <div class="stat-label">Scripting (Python/Bash)</div>
-            </div>
-          </div>
+        <div class="hero-mini">
+          <span class="pill">📍 Vigo, Spain</span>
+          <span class="pill">💼 Embedded SW</span>
+          <span class="pill">🔧 C · RTOS · Drivers</span>
         </div>
       </div>
-    </section>
 
-    <!-- SOBRE MI -->
-    <section id="sobre-mi" class="section" aria-label="Sobre mí">
-      <div class="section-head">
-        <h2>Sobre mí</h2>
-        <button class="btn btn-small btn-neutral" type="button" id="copyAboutBtn" title="Copiar texto">
-          Copiar
-        </button>
-      </div>
+      <div class="hero-right">
+        <p class="eyebrow">Embedded Systems · Embedded Linux · Industrial Protocols</p>
 
-      <div class="card">
-        <p class="muted" id="aboutText">
-          Perfil orientado a producto, validación y mantenimiento.<br><br>
-          A lo largo de mi carrera he desarrollado un perfil sólido como ingeniero en electrónica y software embebido,
-          participando en proyectos tecnológicos en sectores como automoción, defensa y energía.
-          Mi trabajo se centra en el diseño y desarrollo de sistemas embebidos, combinando programación en C/Python,
-          arquitectura de software por capas y gestión de comunicaciones industriales.
+        <h1 class="title">KARIM ERRIFAI HADDAOUI</h1>
+
+        <p class="subtitle">
+          Ingeniero en electrónica industrial y automática. Desarrollo firmware en C, drivers y comunicaciones industriales
+          (I2C/SPI/UART/CAN), automatización con Python/Bash y enfoque en arquitectura modular escalable.
         </p>
 
-        <div class="callout">
-          <div class="callout-title">💡 Qué ofrezco</div>
-          <div class="callout-body">
-            Firmware robusto, drivers limpios, trazabilidad de pruebas y automatización para reducir trabajo manual.
+        <div class="chips" aria-label="Tecnologías destacadas">
+          <button class="chip chip-btn" type="button" data-chip="c">⚙️ C/C++</button>
+          <button class="chip chip-btn" type="button" data-chip="linux">🐧 Embedded Linux</button>
+          <button class="chip chip-btn" type="button" data-chip="comms">🔌 I2C · SPI · UART · CAN</button>
+          <button class="chip chip-btn" type="button" data-chip="py">🛠️ Python · Bash</button>
+          <button class="chip chip-btn" type="button" data-chip="ai">🤖 ML · IA</button>
+        </div>
+
+        <div class="actions">
+          <a class="btn primary" href="#proyectos">Ver proyectos</a>
+          <a class="btn" href="assets/docs/CV_Karim.pdf" target="_blank" rel="noopener">Ver CV</a>
+          <a class="btn" href="https://www.linkedin.com/in/karim-errifai-haddaoui/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="https://github.com/kerrifai" target="_blank" rel="noopener">GitHub</a>
+        </div>
+
+        <div class="hero-stats" aria-label="Resumen rápido">
+          <div class="stat">
+            <p class="stat-k" data-counter="3">0</p>
+            <p class="stat-l">Sectores (auto/def/energía)</p>
+          </div>
+          <div class="stat">
+            <p class="stat-k" data-counter="4">0</p>
+            <p class="stat-l">Buses industriales</p>
+          </div>
+          <div class="stat">
+            <p class="stat-k" data-counter="2">0</p>
+            <p class="stat-l">Scripting (Python/Bash)</p>
           </div>
         </div>
       </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Sobre mí -->
+    <section class="card reveal" id="sobre-mi">
+      <div class="card-header">
+        <div>
+          <h2>Sobre mí</h2>
+          <p class="muted small">Perfil orientado a producto, validación y mantenimiento.</p>
+        </div>
+        <button id="copyAboutBtn" class="btn small" type="button">Copiar</button>
+      </div>
+
+      <p id="aboutText" class="lead">
+        A lo largo de mi carrera he desarrollado un perfil sólido como ingeniero en electrónica y software embebido,
+        participando en proyectos tecnológicos en sectores como automoción, defensa y energía. Mi trabajo se centra
+        en el diseño y desarrollo de sistemas embebidos, combinando programación en C/Python, arquitectura de software
+        por capas y gestión de comunicaciones industriales.
+      </p>
+
+      <div class="callout">
+        <p class="callout-title">💡 Qué ofrezco</p>
+        <p class="muted">
+          Firmware robusto, drivers limpios, trazabilidad de pruebas y automatización para reducir trabajo manual.
+        </p>
+      </div>
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="section" aria-label="Skills">
-      <div class="section-head">
-        <h2>Skills</h2>
-        <p class="muted">Haz click en una tarjeta para ver detalles (puedes ampliarlo luego con modal).</p>
+    <!-- Skills -->
+    <section class="card reveal" id="skills">
+      <div class="card-header">
+        <div>
+          <h2>Skills</h2>
+          <p class="muted small">Haz click en una tarjeta para ver detalles.</p>
+        </div>
       </div>
 
       <div class="skill-grid">
-        <article class="skill skill-firmware" tabindex="0" aria-label="Firmware en C">
+        <article class="skill js-tilt" tabindex="0">
           <div class="skill-top">
-            <span class="skill-icon" aria-hidden="true">⚙️</span>
+            <span class="skill-icon">⚙️</span>
             <h3>Firmware en C</h3>
           </div>
-          <p class="muted">
-            Diseño modular, drivers, control de periféricos, manejo de memoria y APIs estables.
-          </p>
-          <div class="tags" aria-label="Tags firmware">
-            <span class="t t-blue">C</span>
-            <span class="t t-blue">C++</span>
-            <span class="t t-green">Drivers</span>
-            <span class="t t-green">RTOS-ready</span>
+          <p class="muted">Diseño modular, drivers, control de periféricos, APIs estables.</p>
+
+          <div class="skill-more" aria-hidden="true">
+            <ul class="mini-list">
+              <li>Interfaces claras (HAL/Driver/Service/App)</li>
+              <li>Gestión de memoria y errores consistente</li>
+              <li>Listo para unit tests + mocks</li>
+            </ul>
+          </div>
+
+          <div class="tags">
+            <span>C</span><span>C++</span><span>Drivers</span><span>RTOS-ready</span>
           </div>
         </article>
 
-        <article class="skill skill-comm" tabindex="0" aria-label="Comunicaciones">
+        <article class="skill js-tilt" tabindex="0">
           <div class="skill-top">
-            <span class="skill-icon" aria-hidden="true">🔌</span>
+            <span class="skill-icon">🔌</span>
             <h3>Comunicaciones</h3>
           </div>
-          <p class="muted">
-            Integración y depuración de buses industriales y periféricos, con trazas y validación.
-          </p>
-          <div class="tags" aria-label="Tags comunicaciones">
-            <span class="t t-orange">I2C</span>
-            <span class="t t-orange">SPI</span>
-            <span class="t t-orange">UART</span>
-            <span class="t t-orange">CAN</span>
+          <p class="muted">Integración y depuración de buses con trazas y validación.</p>
+
+          <div class="skill-more" aria-hidden="true">
+            <ul class="mini-list">
+              <li>I2C/SPI/UART: timings, buffers, fallos típicos</li>
+              <li>CAN: diagnóstico, tramas, robustez</li>
+              <li>Logging para reproducir issues de campo</li>
+            </ul>
+          </div>
+
+          <div class="tags">
+            <span>I2C</span><span>SPI</span><span>UART</span><span>CAN</span>
           </div>
         </article>
 
-        <article class="skill skill-linux" tabindex="0" aria-label="Embedded Linux">
+        <article class="skill js-tilt" tabindex="0">
           <div class="skill-top">
-            <span class="skill-icon" aria-hidden="true">🐧</span>
+            <span class="skill-icon">🐧</span>
             <h3>Embedded Linux</h3>
           </div>
-          <p class="muted">
-            Entorno Linux para sistemas embebidos, tooling, automatización y soporte a despliegues.
-          </p>
-          <div class="tags" aria-label="Tags Linux">
-            <span class="t t-indigo">Linux</span>
-            <span class="t t-indigo">Tooling</span>
-            <span class="t t-indigo">Debug</span>
-            <span class="t t-indigo">Deploy</span>
+          <p class="muted">Tooling, automatización y soporte para despliegues.</p>
+
+          <div class="skill-more" aria-hidden="true">
+            <ul class="mini-list">
+              <li>Entornos reproducibles y scripts de build</li>
+              <li>Debugging con herramientas de sistema</li>
+              <li>Buenas prácticas de empaquetado</li>
+            </ul>
+          </div>
+
+          <div class="tags">
+            <span>Linux</span><span>Tooling</span><span>Debug</span><span>Deploy</span>
           </div>
         </article>
 
-        <article class="skill skill-auto" tabindex="0" aria-label="Automatización">
+        <article class="skill js-tilt" tabindex="0">
           <div class="skill-top">
-            <span class="skill-icon" aria-hidden="true">🛠️</span>
+            <span class="skill-icon">🛠️</span>
             <h3>Automatización</h3>
           </div>
-          <p class="muted">
-            Scripts y herramientas para builds reproducibles, utilidades y pipelines de soporte.
+          <p class="muted">Scripts para testing, pipelines de soporte y utilidades.</p>
+
+          <div class="skill-more" aria-hidden="true">
+            <ul class="mini-list">
+              <li>CLIs simples para acelerar el día a día</li>
+              <li>Parsing de logs y reportes</li>
+              <li>Checks de calidad/format/lint</li>
+            </ul>
+          </div>
+          <div class="tags">
+            <span>Python</span><span>Bash</span><span>CLI tools</span><span>Reproducible</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Cursos -->
+    <section class="card reveal" id="cursos">
+      <div class="card-header">
+        <div>
+          <h2>Cursos y Certificaciones</h2>
+          <p class="muted small">Formato breve, orientado a impacto.</p>
+        </div>
+      </div>
+
+      <div class="courses-grid">
+        <article class="course-item">
+          <div class="course-top">
+            <h3>AI Engineering — IBM</h3>
+            <span class="badge">Cert</span>
+          </div>
+          <p class="course-meta">ML · Estadística · GenAI</p>
+          <p class="muted">Ciclo completo: datos → modelo → evaluación → despliegue.</p>
+        </article>
+
+        <article class="course-item">
+          <div class="course-top">
+            <h3>Prompting Essentials — Google</h3>
+            <span class="badge">Cert</span>
+          </div>
+          <p class="course-meta">Prompt design</p>
+          <p class="muted">Prompts consistentes para resultados técnicos y medibles.</p>
+        </article>
+
+        <article class="course-item">
+          <div class="course-top">
+            <h3>IT Automation with Python</h3>
+            <span class="badge">Cert</span>
+          </div>
+          <p class="course-meta">Python · Scripting · OS</p>
+          <p class="muted">Scripts robustos: ficheros, procesos, automatización y soporte.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section class="card reveal" id="proyectos">
+      <div class="card-header">
+        <div>
+          <h2>Proyectos relevantes</h2>
+          <p class="muted small">Busca por nombre o filtra por tag. Click en un proyecto para expandir.</p>
+        </div>
+
+        <div class="filters">
+          <input id="searchInput" class="search" type="search" placeholder="Buscar proyecto..." aria-label="Buscar proyecto" />
+          <select id="tagFilter" class="select" aria-label="Filtrar por etiqueta">
+            <option value="all">Todos</option>
+            <option value="embedded">Embedded</option>
+            <option value="c">C</option>
+            <option value="python">Python</option>
+            <option value="data">Data</option>
+            <option value="pdf">PDF</option>
+            <option value="tools">Tools</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid" id="projectsGrid">
+        <article class="project featured reveal" data-tags="python data tools" tabindex="0">
+          <div class="project-top">
+            <div class="project-title">
+              <h3>Data Analysis</h3>
+              <p class="muted small">Pipelines, utilidades y estructura modular</p>
+            </div>
+            <span class="badge featured">Featured</span>
+          </div>
+
+          <p>
+            Repositorio de análisis de datos y utilidades en Python para exploración, limpieza y generación de insights.
+            Enfocado en reutilización y crecimiento por módulos.
           </p>
-          <div class="tags" aria-label="Tags automatización">
-            <span class="t t-green">Python</span>
-            <span class="t t-green">Bash</span>
-            <span class="t t-green">CLI tools</span>
-            <span class="t t-green">Reproducible</span>
+
+          <details class="details">
+            <summary>Ver highlights</summary>
+            <ul class="project-points">
+              <li>Estructura escalable por capas / módulos</li>
+              <li>Preprocesado y EDA reproducibles</li>
+              <li>Utilidades listas para reutilizar en nuevos datasets</li>
+            </ul>
+          </details>
+
+          <div class="tags">
+            <span>Python</span><span>Data</span><span>Tools</span>
+          </div>
+
+          <div class="project-links">
+            <a class="btn small" href="https://github.com/kerrifai/data-analisys" target="_blank" rel="noopener">Ver repo</a>
+            <button class="btn small ghost" type="button" data-share="https://github.com/kerrifai/data-analisys">Copiar link</button>
+          </div>
+        </article>
+
+        <article class="project reveal" data-tags="python pdf tools" tabindex="0">
+          <div class="project-top">
+            <div class="project-title">
+              <h3>PDF Assistant</h3>
+              <p class="muted small">Extracción y automatización con enfoque práctico</p>
+            </div>
+            <span class="badge">Repo</span>
+          </div>
+
+          <p>
+            Asistente para trabajar con PDF (extracción, organización y automatización),
+            con un flujo extensible orientado a productividad.
+          </p>
+
+          <details class="details">
+            <summary>Ver highlights</summary>
+            <ul class="project-points">
+              <li>Procesado y organización automatizada</li>
+              <li>Pipeline ampliable por módulos</li>
+              <li>Enfoque en utilidad real y mantenimiento</li>
+            </ul>
+          </details>
+
+          <div class="tags">
+            <span>Python</span><span>PDF</span><span>Tools</span>
+          </div>
+
+          <div class="project-links">
+            <a class="btn small" href="https://github.com/kerrifai/pdf-assistant" target="_blank" rel="noopener">Ver repo</a>
+            <button class="btn small ghost" type="button" data-share="https://github.com/kerrifai/pdf-assistant">Copiar link</button>
+          </div>
+        </article>
+
+        <article class="project reveal" data-tags="embedded c tools" tabindex="0">
+          <div class="project-top">
+            <div class="project-title">
+              <h3>Embedded Drivers Template</h3>
+              <p class="muted small">Arquitectura por capas + interfaces limpias</p>
+            </div>
+            <span class="badge">Template</span>
+          </div>
+
+          <p>
+            Plantilla modular para drivers (I2C/SPI/UART), servicios y aplicación.
+            Preparada para crecer, testear y mantener.
+          </p>
+
+          <details class="details">
+            <summary>Ver highlights</summary>
+            <ul class="project-points">
+              <li>HAL/Drivers desacoplados con interfaces</li>
+              <li>Preparado para testing y mocks</li>
+              <li>Estructura profesional de repositorio</li>
+            </ul>
+          </details>
+
+          <div class="tags">
+            <span>Embedded</span><span>C</span><span>Drivers</span>
+          </div>
+
+          <div class="project-links">
+            <a class="btn small" href="https://github.com/kerrifai" target="_blank" rel="noopener">Ver GitHub</a>
+            <button class="btn small ghost" type="button" data-share="https://github.com/kerrifai">Copiar link</button>
           </div>
         </article>
       </div>
+
+      <p class="muted small-note" id="resultsNote"></p>
     </section>
 
-    <!-- CURSOS -->
-    <section id="cursos" class="section" aria-label="Cursos">
-      <div class="section-head">
-        <h2>Cursos</h2>
-        <p class="muted">Sección placeholder (puedes enlazar certificados o lista).</p>
+    <!-- Contacto -->
+    <section class="cta reveal" id="contacto" aria-label="Contacto">
+      <div class="cta-left">
+        <h3>¿Hablamos?</h3>
+        <p class="muted">
+          Si buscas un perfil embedded orientado a producto, puedo aportar valor desde el diseño hasta la validación y depuración.
+        </p>
       </div>
-
-      <div class="card">
-        <ul class="list">
-          <li><span class="bullet bullet-indigo"></span> Embedded Linux · Yocto / Tooling</li>
-          <li><span class="bullet bullet-green"></span> Testing / Automatización · Python / Bash</li>
-          <li><span class="bullet bullet-orange"></span> Protocolos industriales · CAN / UART / SPI / I2C</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- PROYECTOS -->
-    <section id="proyectos" class="section" aria-label="Proyectos">
-      <div class="section-head">
-        <h2>Proyectos</h2>
-        <p class="muted">Añade tarjetas con enlaces a repositorios (GitHub) y demos.</p>
-      </div>
-
-      <div class="proj-grid">
-        <article class="proj card">
-          <div class="proj-top">
-            <span class="proj-pill pill-blue">Embedded</span>
-            <span class="proj-pill pill-green">Automation</span>
-          </div>
-          <h3 class="proj-title">Solar Tracker + Telemetry (ESP32)</h3>
-          <p class="muted">Firmware modular + lectura sensores + telemetría + control estable.</p>
-          <div class="proj-actions">
-            <a class="btn btn-small btn-secondary" href="#" target="_blank" rel="noopener">Repo</a>
-            <a class="btn btn-small btn-neutral" href="#" target="_blank" rel="noopener">Demo</a>
-          </div>
-        </article>
-
-        <article class="proj card">
-          <div class="proj-top">
-            <span class="proj-pill pill-orange">Industrial</span>
-            <span class="proj-pill pill-indigo">Linux</span>
-          </div>
-          <h3 class="proj-title">Test Automation Utilities</h3>
-          <p class="muted">Scripts reproducibles y tooling para acelerar validación y trazabilidad.</p>
-          <div class="proj-actions">
-            <a class="btn btn-small btn-secondary" href="#" target="_blank" rel="noopener">Repo</a>
-            <a class="btn btn-small btn-neutral" href="#" target="_blank" rel="noopener">Docs</a>
-          </div>
-        </article>
-
-        <article class="proj card">
-          <div class="proj-top">
-            <span class="proj-pill pill-green">Firmware</span>
-            <span class="proj-pill pill-orange">Buses</span>
-          </div>
-          <h3 class="proj-title">HAL Drivers Template (I2C/SPI/UART/CAN)</h3>
-          <p class="muted">Estructura modular por capas con APIs limpias y tests básicos.</p>
-          <div class="proj-actions">
-            <a class="btn btn-small btn-secondary" href="#" target="_blank" rel="noopener">Repo</a>
-            <a class="btn btn-small btn-neutral" href="#" target="_blank" rel="noopener">README</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- CONTACTO -->
-    <section id="contacto" class="section" aria-label="Contacto">
-      <div class="section-head">
-        <h2>Contacto</h2>
-        <p class="muted">Métodos rápidos para que RRHH o tech leads te contacten.</p>
-      </div>
-
-      <div class="card contact">
-        <div class="contact-row">
-          <span class="contact-k">Email</span>
-          <a class="contact-v" href="mailto:karim@example.com">karim@example.com</a>
-        </div>
-        <div class="contact-row">
-          <span class="contact-k">LinkedIn</span>
-          <a class="contact-v" href="https://www.linkedin.com/" target="_blank" rel="noopener">linkedin.com/in/...</a>
-        </div>
-        <div class="contact-row">
-          <span class="contact-k">GitHub</span>
-          <a class="contact-v" href="https://github.com/" target="_blank" rel="noopener">github.com/...</a>
-        </div>
+      <div class="cta-right">
+        <a class="btn primary" href="https://www.linkedin.com/in/karim-errifai-haddaoui/" target="_blank" rel="noopener">Contactar en LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/kerrifai" target="_blank" rel="noopener">Ver GitHub</a>
       </div>
     </section>
 
     <footer class="footer">
-      <div class="muted">© <span id="year"></span> Karim Errifai Haddaoui · Embedded · Industrial · Automation</div>
+      <p>© <span id="year"></span> Karim Errifai Haddaoui · GitHub Pages</p>
     </footer>
   </main>
 
+  <!-- Back to top -->
+  <button id="toTop" class="to-top" type="button" aria-label="Volver arriba" title="Volver arriba">↑</button>
+
   <script>
-    (function () {
-      const root = document.documentElement;
-      const themeBtn = document.getElementById("themeBtn");
-      const copyBtn = document.getElementById("copyAboutBtn");
-      const aboutText = document.getElementById("aboutText");
-      const yearEl = document.getElementById("year");
+    // Año
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-      // Year
-      yearEl.textContent = String(new Date().getFullYear());
+    // Menú móvil
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    menuBtn?.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(isOpen));
+      menuBtn.textContent = isOpen ? "✕" : "☰";
+    });
 
-      // Load theme
-      const saved = localStorage.getItem("theme");
-      if (saved === "light" || saved === "dark") {
-        root.setAttribute("data-theme", saved);
+    // Scroll progress + back-to-top
+    const scrollBar = document.getElementById("scrollBar");
+    const toTop = document.getElementById("toTop");
+
+    function onScroll() {
+      const doc = document.documentElement;
+      const total = doc.scrollHeight - doc.clientHeight;
+      const p = total > 0 ? (doc.scrollTop / total) : 0;
+      if (scrollBar) scrollBar.style.transform = `scaleX(${p})`;
+      if (toTop) toTop.classList.toggle("show", doc.scrollTop > 700);
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    toTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+    // Copiar "Sobre mí"
+    const copyAboutBtn = document.getElementById("copyAboutBtn");
+    const aboutText = document.getElementById("aboutText");
+    copyAboutBtn?.addEventListener("click", async () => {
+      const text = (aboutText?.innerText || "").trim();
+      try {
+        await navigator.clipboard.writeText(text);
+        const prev = copyAboutBtn.textContent;
+        copyAboutBtn.textContent = "Copiado ✓";
+        setTimeout(() => (copyAboutBtn.textContent = prev), 1200);
+      } catch {
+        alert("No se pudo copiar.");
       }
+    });
 
-      // Toggle theme
-      themeBtn.addEventListener("click", () => {
-        const current = root.getAttribute("data-theme") || "dark";
-        const next = current === "dark" ? "light" : "dark";
-        root.setAttribute("data-theme", next);
-        localStorage.setItem("theme", next);
-      });
-
-      // Copy "Sobre mí"
-      copyBtn.addEventListener("click", async () => {
+    // Copiar links de proyectos
+    document.querySelectorAll("button[data-share]").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const url = btn.getAttribute("data-share");
+        if (!url) return;
         try {
-          await navigator.clipboard.writeText(aboutText.innerText.trim());
-          copyBtn.textContent = "Copiado ✓";
-          setTimeout(() => (copyBtn.textContent = "Copiar"), 1200);
-        } catch (e) {
-          copyBtn.textContent = "Error";
-          setTimeout(() => (copyBtn.textContent = "Copiar"), 1200);
+          await navigator.clipboard.writeText(url);
+          const prev = btn.textContent;
+          btn.textContent = "Copiado ✓";
+          setTimeout(() => (btn.textContent = prev || "Copiar link"), 1200);
+        } catch {
+          alert("No se pudo copiar el link.");
         }
       });
-    })();
+    });
+
+    // Filtro + búsqueda
+    const searchInput = document.getElementById("searchInput");
+    const tagFilter = document.getElementById("tagFilter");
+    const projects = Array.from(document.querySelectorAll("#projectsGrid .project"));
+    const resultsNote = document.getElementById("resultsNote");
+
+    function applyFilters() {
+      const q = (searchInput?.value || "").toLowerCase().trim();
+      const tag = tagFilter?.value || "all";
+      let visible = 0;
+
+      projects.forEach(p => {
+        const title = (p.querySelector("h3")?.innerText || "").toLowerCase();
+        const desc = (p.querySelector("p")?.innerText || "").toLowerCase();
+        const tags = (p.getAttribute("data-tags") || "").toLowerCase();
+
+        const matchesText = !q || title.includes(q) || desc.includes(q) || tags.includes(q);
+        const matchesTag = (tag === "all") || tags.includes(tag);
+
+        const show = matchesText && matchesTag;
+        p.style.display = show ? "" : "none";
+        if (show) visible++;
+      });
+
+      const total = projects.length;
+      resultsNote.textContent = (visible === total) ? "" : `Mostrando ${visible} de ${total} proyectos.`;
+    }
+    searchInput?.addEventListener("input", applyFilters);
+    tagFilter?.addEventListener("change", applyFilters);
+    applyFilters();
+
+    // Nav activo según scroll
+    const navAs = Array.from(document.querySelectorAll(".topbar-links a"));
+    const sections = navAs.map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+
+    const obsNav = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        navAs.forEach(a => a.classList.remove("active"));
+        const id = `#${e.target.id}`;
+        const active = navAs.find(a => a.getAttribute("href") === id);
+        if (active) active.classList.add("active");
+      });
+    }, { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 });
+    sections.forEach(s => obsNav.observe(s));
+
+    // Reveal on scroll
+    const revealEls = Array.from(document.querySelectorAll(".reveal"));
+    const obsReveal = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add("in");
+          obsReveal.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => obsReveal.observe(el));
+
+    // Skill cards: toggle details on click/enter/space
+    document.querySelectorAll(".skill").forEach(card => {
+      const toggle = () => card.classList.toggle("open");
+      card.addEventListener("click", toggle);
+      card.addEventListener("keydown", (ev) => {
+        if (ev.key === "Enter" || ev.key === " ") {
+          ev.preventDefault();
+          toggle();
+        }
+      });
+    });
+
+    // Counters
+    const counters = Array.from(document.querySelectorAll("[data-counter]"));
+    const obsCounter = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const end = Number(el.getAttribute("data-counter") || "0");
+        let cur = 0;
+        const step = Math.max(1, Math.ceil(end / 20));
+        const t = setInterval(() => {
+          cur += step;
+          if (cur >= end) { cur = end; clearInterval(t); }
+          el.textContent = String(cur);
+        }, 30);
+        obsCounter.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(c => obsCounter.observe(c));
+
+    // Chips: scroll to projects and prefiltrar
+    document.querySelectorAll(".chip-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const key = btn.getAttribute("data-chip");
+        const map = { c: "c", linux: "embedded", comms: "embedded", py: "python", ai: "data" };
+        const val = map[key] || "all";
+        if (tagFilter) tagFilter.value = val;
+        applyFilters();
+        document.querySelector("#proyectos")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
   </script>
 </body>
 </html>
