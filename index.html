@@ -3,12 +3,31 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Karim Errifai Haddaoui — Portfolio</title>
-  <meta name="description" content="Portfolio de Karim Errifai Haddaoui: Embedded Systems, Embedded Linux, C/C++, drivers y comunicaciones industriales." />
-  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
+  <meta name="color-scheme" content="light dark" />
+
+  <title>Karim Errifai Haddaoui — Embedded Software / Automation</title>
+  <meta name="description" content="Portfolio de Karim Errifai Haddaoui: Embedded software en C/C++, Linux embebido, drivers y comunicaciones industriales (I2C/SPI/UART/CAN), automatización con Python/Bash." />
+
+  <!-- Canonical (opcional, recomendado) -->
+  <!-- <link rel="canonical" href="https://karimerrifai.github.io/" /> -->
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Karim Errifai Haddaoui — Portfolio" />
+  <meta property="og:description" content="Embedded Software · Embedded Linux · Drivers · Industrial Comms · Python/Bash · SCADA/HMI" />
+  <meta property="og:type" content="website" />
+  <!-- <meta property="og:url" content="https://karimerrifai.github.io/" /> -->
+  <meta property="og:image" content="assets/img/og-cover.png" />
+
+  <!-- Favicon (opcional) -->
+  <!-- <link rel="icon" href="assets/img/favicon.png" /> -->
+
+  <link rel="stylesheet" href="assets/css/styles.css?v=4" />
 </head>
 
 <body>
+  <!-- Skip link (accesibilidad) -->
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
   <!-- Scroll progress -->
   <div class="scroll-progress" aria-hidden="true">
     <div class="scroll-progress__bar" id="scrollBar"></div>
@@ -21,71 +40,107 @@
   <div class="blob c" aria-hidden="true"></div>
 
   <!-- Top bar -->
-  <nav class="topbar" aria-label="Navegación principal">
+  <header class="topbar" role="banner">
     <div class="container topbar-inner">
       <a class="brand" href="#inicio" aria-label="Ir al inicio">
         <span class="brand-dot" aria-hidden="true"></span>
         <span class="brand-text">Karim Errifai Haddaoui</span>
       </a>
 
-      <button id="menuBtn" class="icon-btn menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false">
-        ☰
-      </button>
+      <div class="topbar-actions">
+        <button id="themeBtn" class="icon-btn" type="button" aria-label="Cambiar tema" title="Tema">
+          <span aria-hidden="true">◐</span>
+        </button>
 
-      <div id="navLinks" class="topbar-links" role="navigation" aria-label="Secciones">
+        <button id="menuBtn" class="icon-btn menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false">
+          ☰
+        </button>
+      </div>
+
+      <nav id="navLinks" class="topbar-links" aria-label="Secciones">
         <a href="#sobre-mi">Sobre mí</a>
         <a href="#skills">Skills</a>
         <a href="#cursos">Cursos</a>
         <a href="#proyectos">Proyectos</a>
         <a href="#contacto">Contacto</a>
-      </div>
+      </nav>
     </div>
-  </nav>
+  </header>
 
   <!-- Hero -->
-  <header class="container header" id="inicio">
+  <section class="container header" id="inicio">
     <div class="hero reveal">
       <div class="hero-left">
         <div class="avatar-wrap">
-          <img class="avatar" src="assets/img/profile.png?v=3" alt="Foto de perfil de Karim Errifai Haddaoui" />
+          <img
+            class="avatar"
+            src="assets/img/profile.png?v=4"
+            alt="Foto de perfil de Karim Errifai Haddaoui"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+
+        <div class="hero-badges" aria-label="Enlaces rápidos">
+          <a class="pill" href="assets/docs/CV_Karim.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+          <a class="pill" href="https://www.linkedin.com/in/karim-errifai-haddaoui/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="pill" href="https://github.com/kerrifai" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
 
       <div class="hero-right">
-        <p class="eyebrow">Automation Engineering · Embedded Systems · SCADA/HMI </p>
+        <p class="eyebrow">Embedded Software · Automation · Industrial Systems</p>
 
         <h1 class="title">KARIM ERRIFAI HADDAOUI</h1>
 
         <p class="subtitle">
-          Desarrollador de software embebido. Integración de drivers y comunicaciones industriales
-          (I2C/SPI/UART/CAN). Scripting. Automatización  de tareas con Python/Bash.
+          Desarrollo firmware en C/C++ con arquitectura modular por capas, drivers y comunicaciones industriales
+          (I2C/SPI/UART/CAN). Automatización de tooling y pipelines con Python/Bash. Experiencia con Linux embebido y entornos
+          orientados a calidad (requisitos, validación, trazabilidad).
         </p>
 
         <div class="chips" aria-label="Tecnologías destacadas">
-          <button class="chip chip-btn" type="button" data-chip="c">🖥️ SCADA/HMI </button>
-          <button class="chip chip-btn" type="button" data-chip="c">⚙️ C/C++</button>
-          <button class="chip chip-btn" type="button" data-chip="linux">🐧 Embedded Linux</button>
+          <button class="chip chip-btn" type="button" data-chip="embedded">🐧 Embedded Linux</button>
+          <button class="chip chip-btn" type="button" data-chip="c">⚙️ C/C++ · Drivers</button>
           <button class="chip chip-btn" type="button" data-chip="comms">🔌 I2C · SPI · UART · CAN</button>
-          <button class="chip chip-btn" type="button" data-chip="py">🐍 Python · Bash · Scripting</button>
-          <button class="chip chip-btn" type="button" data-chip="ai">🤖 Machine Learning · Generative IA· Data Science</button>
+          <button class="chip chip-btn" type="button" data-chip="python">🐍 Python · Bash</button>
+          <button class="chip chip-btn" type="button" data-chip="tools">🧪 Tooling · Testing</button>
+          <button class="chip chip-btn" type="button" data-chip="data">🤖 ML · Data</button>
+        </div>
+
+        <div class="hero-stats" aria-label="Resumen rápido">
+          <div class="stat">
+            <p class="stat-k">Embedded</p>
+            <p class="stat-l">Firmware, drivers, integración HW/SW</p>
+          </div>
+          <div class="stat">
+            <p class="stat-k">Industrial</p>
+            <p class="stat-l">SCADA/HMI, validación, entornos críticos</p>
+          </div>
+          <div class="stat">
+            <p class="stat-k">Tooling</p>
+            <p class="stat-l">Automatización Python/Bash, pipelines</p>
+          </div>
         </div>
 
         <div class="actions">
           <a class="btn primary" href="#proyectos">Ver proyectos</a>
-          <a class="btn" href="assets/docs/CV_Karim.pdf" target="_blank" rel="noopener">Ver CV</a>
-          <a class="btn" href="https://www.linkedin.com/in/karim-errifai-haddaoui/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn ghost" href="https://github.com/kerrifai" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="#contacto">Contactar</a>
+          <button class="btn ghost" id="copyProfileBtn" type="button">Copiar resumen</button>
         </div>
+
+        <p class="muted small-note" id="copyNote" aria-live="polite"></p>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main class="container">
+  <main id="contenido" class="container" role="main">
     <!-- Sobre mí -->
     <section class="card reveal" id="sobre-mi">
       <div class="card-header">
         <div>
           <h2>Sobre mí</h2>
+          <p class="muted small">Perfil orientado a producto: mantenibilidad, robustez y escalabilidad.</p>
         </div>
         <button id="copyAboutBtn" class="btn small" type="button">Copiar</button>
       </div>
@@ -96,6 +151,15 @@
         en el diseño y desarrollo de sistemas embebidos, combinando programación en C/Python, arquitectura de software
         por capas y gestión de comunicaciones industriales.
       </p>
+
+      <div class="callout">
+        <p class="callout-title">En qué puedo aportar valor</p>
+        <ul class="mini-list">
+          <li>Drivers y HAL: diseño modular, estados/errores, testabilidad.</li>
+          <li>Integración de buses: depuración de timings, buffers, robustez ante fallos.</li>
+          <li>Automatización: scripts para validación, parsing de logs y reportes.</li>
+        </ul>
+      </div>
     </section>
 
     <!-- Skills -->
@@ -103,88 +167,73 @@
       <div class="card-header">
         <div>
           <h2>Skills</h2>
-          <p class="muted small">Haz click en una tarjeta para ver detalles.</p>
+          <p class="muted small">Click o Enter para expandir detalles.</p>
         </div>
       </div>
 
       <div class="skill-grid">
-        <article class="skill js-tilt" tabindex="0">
+        <article class="skill" tabindex="0">
           <div class="skill-top">
             <span class="skill-icon">⚙️</span>
-            <h3>Firmware en C</h3>
+            <h3>Firmware en C/C++</h3>
           </div>
-          <p class="muted">Diseño y desarrollo de firmware embebido robusto y escalable, orientado a producto y mantenibilidad a largo plazo.</p>
-
+          <p class="muted">Firmware robusto, modular, preparado para evolución y mantenimiento.</p>
           <div class="skill-more" aria-hidden="true">
             <ul class="mini-list">
-              <li>Arquitectura por capas bien definida (HAL / Drivers / Services / Application)</li>
-              <li>Gestión de memoria, manejo explícito de errores y estados</li>
-              <li>Desarrollo de drivers de periféricos (GPIO, ADC, timers, PWM, DMA)</li>
+              <li>Capas: HAL / Drivers / Services / App</li>
+              <li>Gestión explícita de errores, estados y watchdog strategy</li>
+              <li>Periféricos: GPIO, ADC, timers, PWM, DMA</li>
             </ul>
           </div>
-
-          <div class="tags">
-            <span>C</span><span>C++</span><span>Drivers</span><span>RTOS-ready</span>
-          </div>
+          <div class="tags"><span>C</span><span>C++</span><span>Drivers</span><span>RTOS-ready</span></div>
         </article>
 
-        <article class="skill js-tilt" tabindex="0">
+        <article class="skill" tabindex="0">
           <div class="skill-top">
             <span class="skill-icon">🔌</span>
             <h3>Comunicaciones</h3>
           </div>
-          <p class="muted">Integración, validación y depuración de buses de comunicación en sistemas críticos.</p>
-
+          <p class="muted">Integración, validación y depuración de buses industriales.</p>
           <div class="skill-more" aria-hidden="true">
             <ul class="mini-list">
-              <li>Implementación y depuración de I2C, SPI y UART: timings, buffers, interrupciones</li>
-              <li>Diagnóstico y análisis de CAN (tramas, errores, robustez, fallos de bus)</li>
-              <li>Validación de comunicación através con bancos de prueba</li>
+              <li>I2C/SPI/UART: buffers, interrupciones, timeouts</li>
+              <li>CAN: tramas, errores, diagnóstico y robustez</li>
+              <li>Bancos de prueba y validación de comunicación</li>
             </ul>
           </div>
-
-          <div class="tags">
-            <span>I2C</span><span>SPI</span><span>UART</span><span>CAN</span>
-          </div>
+          <div class="tags"><span>I2C</span><span>SPI</span><span>UART</span><span>CAN</span></div>
         </article>
 
-        <article class="skill js-tilt" tabindex="0">
+        <article class="skill" tabindex="0">
           <div class="skill-top">
             <span class="skill-icon">🐧</span>
             <h3>Embedded Linux</h3>
           </div>
-          <p class="muted">Soporte software para sistemas Linux embebidos, enfocado a estabilidad y despliegue.</p>
-
+          <p class="muted">Soporte software y despliegue en sistemas Linux embebidos.</p>
           <div class="skill-more" aria-hidden="true">
             <ul class="mini-list">
-              <li>Utilización de herramientas Yocto para construir sistemas operativos en sistemas embebidos</li>
-              <li>Integración de aplicaciones y servicios en placas embebida</li>
-              <li>Conocimientos sobre RTOS,</li>
+              <li>Yocto: builds, integración de paquetes/servicios</li>
+              <li>Debugging y análisis de sistemas</li>
+              <li>Observabilidad básica (logs/servicios)</li>
             </ul>
           </div>
-
-          <div class="tags">
-            <span>Linux</span><span>Tooling</span><span>Debug</span><span>Yocto</span>
-          </div>
+          <div class="tags"><span>Linux</span><span>Yocto</span><span>Debug</span><span>Tooling</span></div>
         </article>
 
-        <article class="skill js-tilt" tabindex="0">
+        <article class="skill" tabindex="0">
           <div class="skill-top">
             <span class="skill-icon">🛠️</span>
             <h3>Automatización</h3>
           </div>
-          <p class="muted">Scripts para testing, pipelines de soporte y utilidades.</p>
-
+          <p class="muted">Scripts y tooling para productividad y validación.</p>
           <div class="skill-more" aria-hidden="true">
             <ul class="mini-list">
-              <li>Scripts en Python y Bash para testing y soporte a ingeniería</li>
-              <li>Desarrollo de CLI tools para uso interno y productividad diaria</li>
-              <li>Parsing de logs, generación de reportes y análisis de resultados</li>
+              <li>Python/Bash para test, parsing de logs y reportes</li>
+              <li>CLI tools internas y reproducibilidad</li>
+              <li>Soporte a CI/CD y calidad</li>
             </ul>
           </div>
-          <div class="tags">
-            <span>Python</span><span>Bash</span><span>CLI tools</span><span>Reproducible</span>
-          </div>
+          <div class="tags"><span>Python</span><span>Bash</span><span>CI/CD</span><span>Tools</span></div>
         </article>
       </div>
     </section>
@@ -194,6 +243,7 @@
       <div class="card-header">
         <div>
           <h2>Cursos y Certificaciones</h2>
+          <p class="muted small">Selección de formación relevante y aplicada.</p>
         </div>
       </div>
 
@@ -204,7 +254,7 @@
             <span class="badge">Cert</span>
           </div>
           <p class="course-meta">ML · Estadística · GenAI</p>
-          <p class="muted">Desarrollo de soluciones de inteligencia artificial de extremo a extremo, abarcando la preparación y análisis de datos, entrenamiento y validación de modelos, evaluación de rendimiento y despliegue en entornos productivos.</p>
+          <p class="muted">Pipeline end-to-end: datos → entrenamiento → evaluación → despliegue.</p>
         </article>
 
         <article class="course-item">
@@ -213,7 +263,7 @@
             <span class="badge">Cert</span>
           </div>
           <p class="course-meta">Prompt design</p>
-          <p class="muted">Diseño de prompts estructurados y reproducibles, orientados a la obtención de resultados técnicos consistentes y medibles en sistemas basados en modelos de lenguaje.</p>
+          <p class="muted">Prompts estructurados y reproducibles para resultados consistentes.</p>
         </article>
 
         <article class="course-item">
@@ -222,7 +272,7 @@
             <span class="badge">Cert</span>
           </div>
           <p class="course-meta">Python · Scripting · OS</p>
-          <p class="muted">Automatización de tareas de sistemas mediante scripting en Python, incluyendo gestión de archivos, procesos, flujos de trabajo y soporte a operaciones IT</p>
+          <p class="muted">Automatización de tareas: archivos, procesos y flujos de trabajo.</p>
         </article>
       </div>
     </section>
@@ -232,7 +282,7 @@
       <div class="card-header">
         <div>
           <h2>Proyectos relevantes</h2>
-          <p class="muted small">Busca por nombre o filtra por tag. Click en un proyecto para expandir.</p>
+          <p class="muted small">Busca por nombre o filtra por tag.</p>
         </div>
 
         <div class="filters">
@@ -260,23 +310,18 @@
             <span class="badge featured">Featured</span>
           </div>
 
-          <p>
-            Repositorio de análisis de datos y utilidades en Python para exploración, limpieza y generación de insights.
-            Enfocado en reutilización y crecimiento por módulos.
-          </p>
+          <p>Repositorio de análisis de datos y utilidades en Python para exploración, limpieza y generación de insights.</p>
 
           <details class="details">
             <summary>Ver highlights</summary>
             <ul class="project-points">
               <li>Estructura escalable por capas / módulos</li>
-              <li>Preprocesado y EDA reproducibles</li>
-              <li>Utilidades listas para reutilizar en nuevos datasets</li>
+              <li>EDA reproducible</li>
+              <li>Utilidades listas para reutilizar</li>
             </ul>
           </details>
 
-          <div class="tags">
-            <span>Python</span><span>Data</span><span>Tools</span>
-          </div>
+          <div class="tags"><span>Python</span><span>Data</span><span>Tools</span></div>
 
           <div class="project-links">
             <a class="btn small" href="https://github.com/kerrifai/data-analisys" target="_blank" rel="noopener">Ver repo</a>
@@ -284,34 +329,27 @@
           </div>
         </article>
 
-        <!-- ✅ NUEVO PROYECTO: Data Visualization -->
         <article class="project reveal" data-tags="python data viz tools" tabindex="0">
           <div class="project-top">
             <div class="project-title">
               <h3>AI Data Visualization Agent</h3>
-              <p class="muted small">Dashboards, mapas y storytelling con datos</p>
+              <p class="muted small">Dashboards, mapas y storytelling</p>
             </div>
             <span class="badge">Repo</span>
           </div>
 
-          <p>
-            Proyecto de visualización y análisis de datos por Inteligencia Artificial, diseñado para generar:
-            insights automáticos, gráficos explicativos y análisis exploratorio a partir de uno o varios datasets.
-          </p>
+          <p>Agente que analiza uno o varios CSV y genera visualizaciones e insights automáticamente.</p>
 
           <details class="details">
             <summary>Ver highlights</summary>
             <ul class="project-points">
-              <li> Analizar automáticamente la estructura de los CSV
-              <li> Detectar columnas, tipos de datos. </li>
-              <li> Generar visualizaciones adecuadas sin configuración manual</li>
-              <li> Identificar relaciones potenciales entre datasets</li>
+              <li>Inspección automática de columnas y tipos</li>
+              <li>Selección de gráficos sin configuración manual</li>
+              <li>Detección de relaciones potenciales entre datasets</li>
             </ul>
           </details>
 
-          <div class="tags">
-            <span>Python</span><span>Data</span><span>Visualization</span><span>EDA</span>
-          </div>
+          <div class="tags"><span>Python</span><span>Data</span><span>Viz</span><span>EDA</span></div>
 
           <div class="project-links">
             <a class="btn small" href="https://github.com/kerrifai/data_visualization" target="_blank" rel="noopener">Ver repo</a>
@@ -323,28 +361,23 @@
           <div class="project-top">
             <div class="project-title">
               <h3>PDF Assistant</h3>
-              <p class="muted small">Extracción y automatización con enfoque práctico</p>
+              <p class="muted small">Extracción y automatización</p>
             </div>
             <span class="badge">Repo</span>
           </div>
 
-          <p>
-            Asistente para trabajar con PDF (extracción, organización y automatización),
-            con un flujo extensible orientado a productividad.
-          </p>
+          <p>Pipeline extensible para extracción, organización y automatización de tareas con PDFs.</p>
 
           <details class="details">
             <summary>Ver highlights</summary>
             <ul class="project-points">
               <li>Procesado y organización automatizada</li>
-              <li>Pipeline ampliable por módulos</li>
-              <li>Enfoque en utilidad real y mantenimiento</li>
+              <li>Arquitectura ampliable</li>
+              <li>Enfoque en utilidad real</li>
             </ul>
           </details>
 
-          <div class="tags">
-            <span>Python</span><span>PDF</span><span>Tools</span>
-          </div>
+          <div class="tags"><span>Python</span><span>PDF</span><span>Tools</span></div>
 
           <div class="project-links">
             <a class="btn small" href="https://github.com/kerrifai/pdf-assistant" target="_blank" rel="noopener">Ver repo</a>
@@ -360,10 +393,11 @@
     <section class="cta reveal" id="contacto" aria-label="Contacto">
       <div class="cta-left">
         <h3>¿Hablamos?</h3>
+        <p class="muted">Si quieres que adapte este portfolio a una oferta concreta, lo optimizo por rol/empresa.</p>
       </div>
       <div class="cta-right">
         <a class="btn primary" href="https://www.linkedin.com/in/karim-errifai-haddaoui/" target="_blank" rel="noopener">Contactar en LinkedIn</a>
-        <a class="btn ghost" href="https://github.com/kerrifai" target="_blank" rel="noopener">Ver GitHub</a>
+        <a class="btn ghost" href="assets/docs/CV_Karim.pdf" target="_blank" rel="noopener">Abrir CV</a>
       </div>
     </section>
 
@@ -375,147 +409,6 @@
   <!-- Back to top -->
   <button id="toTop" class="to-top" type="button" aria-label="Volver arriba" title="Volver arriba">↑</button>
 
-  <script>
-    // Año
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Menú móvil
-    const menuBtn = document.getElementById("menuBtn");
-    const navLinks = document.getElementById("navLinks");
-    menuBtn?.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-      menuBtn.setAttribute("aria-expanded", String(isOpen));
-      menuBtn.textContent = isOpen ? "✕" : "☰";
-    });
-
-    // Scroll progress + back-to-top
-    const scrollBar = document.getElementById("scrollBar");
-    const toTop = document.getElementById("toTop");
-
-    function onScroll() {
-      const doc = document.documentElement;
-      const total = doc.scrollHeight - doc.clientHeight;
-      const p = total > 0 ? (doc.scrollTop / total) : 0;
-      if (scrollBar) scrollBar.style.transform = `scaleX(${p})`;
-      if (toTop) toTop.classList.toggle("show", doc.scrollTop > 700);
-    }
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-
-    toTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-
-    // Copiar "Sobre mí"
-    const copyAboutBtn = document.getElementById("copyAboutBtn");
-    const aboutText = document.getElementById("aboutText");
-    copyAboutBtn?.addEventListener("click", async () => {
-      const text = (aboutText?.innerText || "").trim();
-      try {
-        await navigator.clipboard.writeText(text);
-        const prev = copyAboutBtn.textContent;
-        copyAboutBtn.textContent = "Copiado ✓";
-        setTimeout(() => (copyAboutBtn.textContent = prev), 1200);
-      } catch {
-        alert("No se pudo copiar.");
-      }
-    });
-
-    // Copiar links de proyectos
-    document.querySelectorAll("button[data-share]").forEach(btn => {
-      btn.addEventListener("click", async () => {
-        const url = btn.getAttribute("data-share");
-        if (!url) return;
-        try {
-          await navigator.clipboard.writeText(url);
-          const prev = btn.textContent;
-          btn.textContent = "Copiado ✓";
-          setTimeout(() => (btn.textContent = prev || "Copiar link"), 1200);
-        } catch {
-          alert("No se pudo copiar el link.");
-        }
-      });
-    });
-
-    // Filtro + búsqueda
-    const searchInput = document.getElementById("searchInput");
-    const tagFilter = document.getElementById("tagFilter");
-    const projects = Array.from(document.querySelectorAll("#projectsGrid .project"));
-    const resultsNote = document.getElementById("resultsNote");
-
-    function applyFilters() {
-      const q = (searchInput?.value || "").toLowerCase().trim();
-      const tag = tagFilter?.value || "all";
-      let visible = 0;
-
-      projects.forEach(p => {
-        const title = (p.querySelector("h3")?.innerText || "").toLowerCase();
-        const desc = (p.querySelector("p")?.innerText || "").toLowerCase();
-        const tags = (p.getAttribute("data-tags") || "").toLowerCase();
-
-        const matchesText = !q || title.includes(q) || desc.includes(q) || tags.includes(q);
-        const matchesTag = (tag === "all") || tags.includes(tag);
-
-        const show = matchesText && matchesTag;
-        p.style.display = show ? "" : "none";
-        if (show) visible++;
-      });
-
-      const total = projects.length;
-      resultsNote.textContent = (visible === total) ? "" : `Mostrando ${visible} de ${total} proyectos.`;
-    }
-    searchInput?.addEventListener("input", applyFilters);
-    tagFilter?.addEventListener("change", applyFilters);
-    applyFilters();
-
-    // Nav activo según scroll
-    const navAs = Array.from(document.querySelectorAll(".topbar-links a"));
-    const sections = navAs.map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
-
-    const obsNav = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        navAs.forEach(a => a.classList.remove("active"));
-        const id = `#${e.target.id}`;
-        const active = navAs.find(a => a.getAttribute("href") === id);
-        if (active) active.classList.add("active");
-      });
-    }, { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 });
-    sections.forEach(s => obsNav.observe(s));
-
-    // Reveal on scroll
-    const revealEls = Array.from(document.querySelectorAll(".reveal"));
-    const obsReveal = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add("in");
-          obsReveal.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    revealEls.forEach(el => obsReveal.observe(el));
-
-    // Skill cards: toggle details on click/enter/space
-    document.querySelectorAll(".skill").forEach(card => {
-      const toggle = () => card.classList.toggle("open");
-      card.addEventListener("click", toggle);
-      card.addEventListener("keydown", (ev) => {
-        if (ev.key === "Enter" || ev.key === " ") {
-          ev.preventDefault();
-          toggle();
-        }
-      });
-    });
-
-    // Chips: scroll to projects and prefiltrar
-    document.querySelectorAll(".chip-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const key = btn.getAttribute("data-chip");
-        const map = { c: "c", linux: "embedded", comms: "embedded", py: "python", ai: "data" };
-        const val = map[key] || "all";
-        if (tagFilter) tagFilter.value = val;
-        applyFilters();
-        document.querySelector("#proyectos")?.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-    });
-  </script>
+  <script src="assets/js/main.js?v=4" defer></script>
 </body>
 </html>
