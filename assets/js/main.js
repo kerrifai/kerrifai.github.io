@@ -202,4 +202,21 @@
       document.querySelector("#proyectos")?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
+
+    // Subtle parallax on hero blobs (very light)
+  const prefersReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  if (!prefersReduced) {
+    const hero = document.querySelector(".hero");
+    if (hero) {
+      hero.addEventListener("mousemove", (e) => {
+        const r = hero.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        hero.style.transform = `translateY(0) perspective(900px) rotateX(${(-y*1.2).toFixed(2)}deg) rotateY(${(x*1.2).toFixed(2)}deg)`;
+      });
+      hero.addEventListener("mouseleave", () => {
+        hero.style.transform = "";
+      });
+    }
+  }
 })();
