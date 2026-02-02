@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <!--
     @file index.html
-    @brief Main webpage of Karim Errifai Haddaoui - SW Developer.
-
-    This is the main page for Karim Errifai Haddaoui personal website. It includes navigation links to the curriculum and the home page.
-
+    @brief Main webpage of Karim Errifai Haddaoui - HW/SW Engineer.
+    
+    This is the main page for Karim Errifai Haddaoui's personal website. It includes navigation links to the curriculum and the home page.
+    
     @section header Header Section
     This section contains the navigation menu with links to the home page and the curriculum page.
 
@@ -17,68 +17,182 @@
     @section footer Footer Section
     The footer contains the copyright notice.
     -->
-
+    
     <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5DJHTQZZD8"></script>
+    <script>
+    // GA4 initialization
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-5DJHTQZZD8');
+
+    // ----------- CUSTOM TRACKING -----------
+
+    // Track CV PDF downloads
+    function bindCvDownloadTracking() {
+        const links = Array.from(document.querySelectorAll('a[href$=".pdf"], a[download]'));
+        links.forEach(a => {
+        a.addEventListener('click', () => {
+            const lang = location.pathname.includes('/es/') ? 'es' :
+                        location.pathname.includes('/en/') ? 'en' : 'unknown';
+            gtag('event', 'download_cv', {
+            file_name: (a.getAttribute('href') || '').split('/').pop() || 'unknown',
+            page_path: location.pathname,
+            page_title: document.title,
+            // detect language from the link itself:
+            language: (a.getAttribute('href') || '').includes('/es/') ? 'es' :
+                        (a.getAttribute('href') || '').includes('/en/') ? 'en' : 'unknown',
+            transport_type: 'beacon'
+            });
+        }, { passive: true });
+        });
+    }
+
+    // Track clicks to the CV page
+    function bindViewCvTracking() {
+    document.querySelectorAll('a[href*="Curriculum.html"]').forEach(a => {
+        a.addEventListener('click', () => {
+        const lang = a.href.includes('/es/') ? 'es' :
+                    a.href.includes('/en/') ? 'en' : 'unknown';
+        gtag('event', 'view_cv_page', {
+            link_href: a.getAttribute('href'),
+            language: lang,
+            page_path: location.pathname,
+            transport_type: 'beacon'
+        });
+        }, { passive: true });
+    });
+    }
+
+    // Init tracking when DOM is ready
+    function initTracking() {
+        bindCvDownloadTracking();
+        bindViewCvTracking();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTracking);
+    } else {
+        initTracking();
+    }
+    </script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karim Errifai Haddaoui - Desarrollador SW Embebido</title>
-    <link href="../styles/style.css" rel="stylesheet" type="text/css">
+    <title>Karim Errifai Haddaoui - Embedded Software Developer </title>
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <!-- Header section with navigation bar -->
     <header>
         <nav>
+            <!-- Navigation menu list -->
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="../pages/es/Curriculum.html">Currículum</a></li>
+                <li><a href="en/index.html">Home</a></li>
+                <li><a href="pages/en/Curriculum.html">Curriculum</a></li>
             </ul>
-            <div class="language-selector">
-                <a href="../en/index.html"><img src="../images/uk-flag.png" alt="English" class="flag"></a>
-                <a href="index.html"><img src="../images/spain-flag.png" alt="Español" class="flag"></a>
+             <!-- Language Switch Button -->
+             <div class="language-selector">
+                <a href="en/index.html"><img src="images/uk-flag.png" alt="English" class="flag"></a>
+                <a href="es/index.html"><img src="images/spain-flag.png" alt="Español" class="flag"></a>
             </div>
         </nav>
     </header>
-
-    <!-- Main content section -->
+    
+    <!-- Main content section of the page -->
     <main>
+        <!-- Introduction section with name and profession -->
         <section class="intro">
             <h1>Karim Errifai Haddaoui</h1>
-            <img src="../images/profile.png" alt="Foto de perfil de Karim errifai Haddaoui" class="profile-photo">
-            <p><strong>Desarrollador SW Embebido</strong></p>
-        </section>
 
-        <div class="grid-layout">
-            <!-- CV section -->
-            <section class="cv card">
-                <h2>Mi currículum</h2>
-                <p>Puedes ver mi currículum completo en el siguiente enlace:</p>
-                <a href="../pages/es/Curriculum.html" class="btn">Ver currículum</a>
-                <p>O si lo prefieres, puedes descargarlo directamente:</p>
-                <a href="../files/es/CV.pdf" download class="btn">Descargar CV</a>
-            </section>
+            <!-- Profile photo -->
+            <img src="images/profile.png" alt="Profile of Karim Errifai Haddaoui" class="profile-photo">
 
-            <!-- About Me section -->
+            <p><strong>Desarrollador de SW embebido · Integracion HW- SW · SCADA/HMI · Comunicaciones Industriales </strong></p>
+
+            <!-- "About Me" section -->
             <section class="about-me card">
                 <h2>Sobre mí</h2>
                 <p>
-                    Soy un ingeniero especializado en sistemas embebidos, electrónica y desarrollo de software. 
-                    Valoro la honestidad, la fiabilidad y la mejora continua. Me gusta diseñar sistemas modulares, escalables y mantenibles 
-                    que combinan firmware, hardware y protocolos de comunicación.
+                    Desarrollador de software embebido con experiencia en electrónica, sistemas embebidos basadose en Linux y RTOS, enfocado en diseño de firmware modular, integración hardware-software y protocolos de comunicación industrial en entornos de producción.
                 </p>
             </section>
 
-            <!-- Skills section -->
+        </section>
+        <div class="grid-layout">
+            <!-- Curriculum section with download link and embedded PDF -->
+
             <section class="skills card">
-                <h2>Tecnologías y herramientas</h2>
-                <ul>
-                    <li><strong>Lenguajes:</strong> C, Python, Shell scripting, C++</li>
-                    <li><strong>Plataformas:</strong> ESP32, STM32 (ARM Cortex-M), PIC18, AVR</li>
-                    <li><strong>OS / Frameworks:</strong> Linux, FreeRTOS</li>
-                    <li><strong>Herramientas:</strong> Git, VS Code, Altium, KiCad, Docker</li>
-                    <li><strong>Comunicación:</strong> UART, SPI, I2C, CAN, Bluetooth</li>
-                </ul>
+                <div class="skills-head">
+                    <h2>Herramientas y Tecnologías</h2>
+                    <p class="skills-sub"></p>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-block">
+                        <h3>💻 Programación</h3>
+                        <div class="skill-tags">
+                            <span class="tag">C</span>
+                            <span class="tag">C++</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Shell/Bash</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-block">
+                        <h3>🧠 Plataformas</h3>
+                        <div class="skill-tags">
+                            <span class="tag">ESP32</span>
+                            <span class="tag">STM32 (ARM Cortex-M)</span>
+                            <span class="tag">PIC18</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-block">
+                        <h3>🧩 Linux embebido</h3>
+                        <div class="skill-tags">
+                            <span class="tag"> Yocto </span>
+                            <span class="tag">FreeRTOS</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-block">
+                        <h3>🧰 Herramientas</h3>
+                        <div class="skill-tags">
+                            <span class="tag">Git</span>
+                            <span class="tag">VS Code</span>
+                            <span class="tag">KiCad</span>
+                            <span class="tag">Docker</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-block">
+                        <h3>📡 Protocolos de comunicacion</h3>
+                        <div class="skill-tags">
+                            <span class="tag">UART</span>
+                            <span class="tag">SPI</span>
+                            <span class="tag">I2C</span>
+                            <span class="tag">CAN</span>
+                            <span class="tag">LIN</span>
+                            <span class="tag">SNMP</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-block">
+                        <h3>📡 SCADA/HMI</h3>
+                        <div class="skill-tags">
+                            <span class="tag">WinCC</span>
+                            <span class="tag">Spectrum Power</span>
+                            <span class="tag">Telecontrol </span>
+                            <span class="tag">RTU </span>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <!-- Clean spacer section -->
+            
+            <!-- "Clean" section -->
             <section class="clean">
             </section>
 
@@ -87,36 +201,53 @@
                 <h2>Featured Projects</h2>
                 <ul>
                     <li>
-                        <strong><a href="https://github.com/kerrifai/data_visualization" target="_blank">AI Data Visualization Platform</a></strong>: 
+                        <strong><a href="https://github.com/kerrifai/data_visualization" target="_blank">Plataforma de visualización de datos de IA</a></strong>: 
                         Este proyecto funciona como una plataforma de análisis y visualización de datos asistida por IA diseñada para generar información automática, gráficos explicativos y análisis exploratorios a partir de uno o más conjuntos de datos (CSV).                    </li>
                     <li>
-                        <strong><a href="https://github.com/kerrifai/pdf-assistant" target="_blank">PDF Assistant</a></strong>: 
+                        <strong><a href="https://github.com/kerrifai/pdf-assistant" target="_blank">Asistente de PDF's</a></strong>: 
                         Este proyecto implementa una aplicación web interactiva creada con Python, Streamlit y LangChain para cargar uno o varios archivos PDF, extraer automáticamente su contenido, generar explicaciones estructuradas y realizar preguntas y respuestas basadas exclusivamente en el texto del PDF.                    </li>
                     <li>
-                        <strong><a href="https://github.com/kerrifai/etl_report" target="_blank">ETL Report - Automated Data Pipeline for BI & Analytics</a></strong>: 
-                        Este proyecto implementa una flujo ETL (Extracción-Transformación-Carga) orientada al procesamiento de datos industriales/empresariales, almacenarlos en una base de datos estructurada y generar conjuntos de datos analíticos listos para usar para Power BI.                    </li>
+                        <strong><a href="https://github.com/kerrifai/etl_report" target="_blank">Informe ETL: canalización de datos automatizada para inteligencia empresarial y análisis</a></strong>: 
+                        Este proyecto implementa una canalización ETL (Extracción-Transformación-Carga) orientada a la producción diseñada para procesar datos comerciales sin procesar, almacenarlos en una base de datos estructurada y generar conjuntos de datos analíticos listos para usar para Power BI.
+                    </li>
                     <li>
-                        <strong><a href="https://github.com/kerrifai/local-sensors-dashboard" target="_blank">Local Sensor Dashboard (Qt + PySide6)</a></strong>: 
-                        Este proyecto visualiza una aplicación de escritorio desarrollada en Python y PySide6 (Qt) que funciona como un sistema SCADA/HMI local. Permite la adquisición, visualización, almacenamiento y análisis en tiempo real de datos de sensores provenientes de archivos CSV/JSON.                    </li>
+                        <strong><a href="https://github.com/kerrifai/local-sensors-dashboard" target="_blank">Panel de monitorizacion para sensores industriales (Qt + PySide6)</a></strong>: 
+                        Este proyecto visualiza una aplicación de escritorio desarrollada en Python y PySide6 (Qt) que funciona como un sistema SCADA/HMI local. Permite la adquisición, visualización, almacenamiento y análisis en tiempo real de datos de sensores provenientes de archivos CSV/JSON.
+                    </li>
                 </ul>
             </section>
-
-            <!-- Contact section -->
             <section class="contact card">
                 <h2>Contacto</h2>
-                <p>Puedes contactarme a través de las siguientes plataformas:</p>
-                <ul>
-                    <li><strong>Email:</strong> <a href="mailto:karimerrifai@gmail.com">karimerrifai@gmail.com</a></li>
-                    <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/karim-errifai-haddaoui/" target="_blank" rel="noopener noreferrer">linkedin.com/in/karim-errifai-haddaoui</a></li>
-                    <li><strong>GitHub:</strong> <a href="https://github.com/kerrifai" target="_blank" rel="noopener noreferrer">github.com/kerrifai</a></li>
-                </ul>
-            </section>
+
+                <div class="contact-grid">
+                    <!-- LEFT: Contact -->
+                    <div class="contact-col">
+                        <p>Puedes contactarme a través de cualquiera de las siguientes plataformas:</p>
+
+                    <ul>
+                        <li><strong>Email:</strong> <a href="mailto:karimerrifai@gmail.com">karimerrifai@gmail.com</a></li>
+                        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/karim-errifai-haddaoui/" target="_blank">linkedin.com/in/karim-errifai-haddaoui</a></li>
+                        <li><strong>GitHub:</strong> <a href="https://github.com/kerrifai" target="_blank">github.com/kerrifai</a></li>
+                    </ul>
+                    </div>
+
+                <!-- RIGHT: Curriculum -->
+                    <div class="cv-col">
+                        <p><strong>Curriculum </strong></p>
+                        <div class="cv-actions">
+                            <a href="pages/en/Curriculum.html" class="btn">Ver Curriculum</a>
+                            <a href="files/en/CV.pdf" download class="btn">Descargar CV</a>
+                        </div>
+                    </div>
+                </div>
+        </section>
         </div>
     </main>
-
-    <!-- Footer -->
+    
+    <!-- Footer section with copyright information -->
     <footer>
         <p>&copy; 2026 Karim Errifai Haddaoui</p>
     </footer>
 </body>
 </html>
+ 
