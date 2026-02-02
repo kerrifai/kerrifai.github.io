@@ -1,14 +1,11 @@
 /* =========================================================
-   Production UI v2 — Modern / Clean / Balanced layout
-   - Better grid distribution (top 3 cards, bottom 2)
-   - Projects wide, Contact narrow (8/4)
-   - Softer background, better typography
-   - Modern sticky navbar with blur
+   Production UI v3 — Polished hero + better contrast + projects
 ========================================================= */
 
 :root{
   --container: 1120px;
   --radius: 18px;
+  --radius2: 24px;
 
   --text: #0f172a;
   --muted: #475569;
@@ -28,14 +25,13 @@
   --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans";
 }
 
-/* Dark mode */
 @media (prefers-color-scheme: dark){
   :root{
     --text: #e5e7eb;
-    --muted: #9ca3af;
+    --muted: #a3aab7;
     --border: rgba(148,163,184,.18);
-    --card: rgba(15,23,42,.70);
-    --card2: rgba(15,23,42,.55);
+    --card: rgba(15,23,42,.72);
+    --card2: rgba(15,23,42,.56);
     --shadow: 0 14px 40px rgba(0,0,0,.35);
     --shadow2: 0 22px 70px rgba(0,0,0,.45);
   }
@@ -52,7 +48,7 @@ body{
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 
-  /* Softer, more premium background */
+  /* More premium background */
   background:
     radial-gradient(900px 520px at 16% 10%, rgba(37,99,235,.20), transparent 65%),
     radial-gradient(820px 520px at 86% 18%, rgba(34,197,94,.16), transparent 60%),
@@ -60,7 +56,6 @@ body{
     linear-gradient(180deg, rgba(2,6,23,.02), rgba(2,6,23,.04));
 }
 
-/* Links */
 a{ color: inherit; text-decoration:none; }
 a:hover{ text-decoration:none; }
 
@@ -108,25 +103,23 @@ nav ul li a{
   align-items:center;
   padding: 10px 12px;
   border-radius: 12px;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 14px;
   color: var(--text);
   opacity: .92;
   transition: background .15s ease, transform .15s ease, opacity .15s ease;
 }
-
 nav ul li a:hover{
   background: rgba(37,99,235,.10);
   transform: translateY(-1px);
   opacity: 1;
 }
 
-/* Language selector (right side) */
 .language-selector{
   display:flex;
   align-items:center;
   gap: 10px;
-  padding: 8px 10px;
+  padding: 7px 9px;
   border-radius: 999px;
   border: 1px solid var(--border);
   background: rgba(255,255,255,.40);
@@ -148,43 +141,60 @@ nav ul li a:hover{
 }
 .flag:hover{
   transform: translateY(-1px) scale(1.05);
-  filter: saturate(1.05);
+  filter: saturate(1.08);
 }
 
 /* =========================================================
-   MAIN / HERO
+   MAIN / HERO (FIX: less tall + better contrast)
 ========================================================= */
 main{
   width: min(var(--container), calc(100% - 32px));
   margin: 0 auto;
-  padding: 28px 0 44px;
+  padding: 22px 0 44px;
 }
 
+/* Compact, elegant hero */
 .intro{
+  position: relative;
   display:flex;
   flex-direction: column;
   align-items:center;
   text-align:center;
   gap: 10px;
 
-  padding: 26px 18px 18px;
+  padding: 22px 18px 16px;
   margin-top: 10px;
 
   border: 1px solid var(--border);
-  border-radius: 22px;
+  border-radius: var(--radius2);
   background: rgba(255,255,255,.42);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
+  overflow: hidden;
 }
+
+/* Decorative glow */
+.intro::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:
+    radial-gradient(560px 160px at 18% 0%, rgba(37,99,235,.20), transparent 60%),
+    radial-gradient(520px 180px at 82% 10%, rgba(34,197,94,.16), transparent 60%);
+  opacity: .9;
+  pointer-events:none;
+}
+
+.intro > *{ position: relative; z-index: 1; }
 
 @media (prefers-color-scheme: dark){
   .intro{ background: rgba(15,23,42,.35); }
 }
 
 .profile-photo{
-  width: 128px;
-  height: 128px;
+  width: 118px;
+  height: 118px;
   border-radius: 999px;
   object-fit: cover;
   border: 2px solid rgba(255,255,255,.65);
@@ -193,16 +203,35 @@ main{
 
 .intro h1{
   margin: 0;
-  font-size: clamp(28px, 3.8vw, 44px);
+  font-size: clamp(28px, 3.6vw, 42px);
   letter-spacing: -0.02em;
-  line-height: 1.1;
+  line-height: 1.08;
 }
 
+/* FIX: your subtitle was too low-contrast */
+.intro h3,
+.intro .subtitle,
 .intro p{
   margin: 0;
+}
+
+.intro h3{
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (prefers-color-scheme: dark){
+  .intro h3{ color: rgba(229,231,235,.88); }
+}
+
+/* If subtitle is in a <p> */
+.intro p{
   color: var(--muted);
   font-size: 15.5px;
-  max-width: 70ch;
+  max-width: 72ch;
 }
 
 /* =========================================================
@@ -215,7 +244,6 @@ main{
   margin-top: 18px;
 }
 
-/* Cards */
 .card{
   border-radius: var(--radius);
   border: 1px solid var(--border);
@@ -244,18 +272,15 @@ main{
   color: var(--muted);
 }
 
-/* Lists */
 .card ul{
   margin: 0;
   padding-left: 18px;
 }
-.card li{ margin: 8px 0; }
-.card li strong{ font-weight: 800; }
 
-/* ✅ Layout distribution (fix your screenshot)
-   Top row: 3 cards (4/4/4)
-   Bottom: Projects (8) + Contact (4)
-*/
+.card li{ margin: 8px 0; }
+.card li strong{ font-weight: 900; }
+
+/* Layout distribution */
 .cv{ grid-column: span 4; }
 .about-me{ grid-column: span 4; }
 .skills{ grid-column: span 4; }
@@ -263,10 +288,8 @@ main{
 .projects{ grid-column: span 8; }
 .contact{ grid-column: span 4; }
 
-/* Hide spacer */
 .clean{ display:none; }
 
-/* Responsive */
 @media (max-width: 1024px){
   .cv, .about-me, .skills{ grid-column: span 12; }
   .projects, .contact{ grid-column: span 12; }
@@ -284,7 +307,7 @@ main{
   border: 1px solid rgba(37,99,235,.25);
   background: linear-gradient(180deg, rgba(37,99,235,.95), rgba(29,78,216,.95));
   color: #fff;
-  font-weight: 800;
+  font-weight: 900;
   font-size: 14px;
   box-shadow: 0 14px 30px rgba(37,99,235,.18);
   transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
@@ -294,12 +317,17 @@ main{
   filter: brightness(1.04);
   box-shadow: 0 18px 40px rgba(37,99,235,.22);
 }
-
 .cv .btn + .btn{ margin-left: 10px; }
 
 /* =========================================================
-   PROJECTS: make it readable + less “wall of text”
+   PROJECTS (more hierarchy + prettier items)
 ========================================================= */
+.projects h2{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
 .projects ul{
   list-style:none;
   padding-left: 0;
@@ -312,11 +340,17 @@ main{
   border-radius: 14px;
   border: 1px solid var(--border);
   background: var(--card2);
+  transition: transform .15s ease, border-color .15s ease;
+}
+
+.projects li:hover{
+  transform: translateY(-2px);
+  border-color: rgba(37,99,235,.22);
 }
 
 .projects li a{
   color: var(--brand);
-  font-weight: 900;
+  font-weight: 950;
 }
 
 .projects li a:hover{ text-decoration: underline; }
@@ -327,29 +361,20 @@ main{
   font-size: 14px;
 }
 
-/* If your HTML has <br> or plain text blocks inside projects,
-   keep line length comfortable */
-.projects{
-  position: relative;
+/* Better readability for long text blocks */
+.projects li{
+  line-height: 1.5;
 }
-.projects::before{
-  content:"";
-  position:absolute;
-  inset: -1px;
-  border-radius: var(--radius);
-  pointer-events:none;
-  background: radial-gradient(500px 140px at 15% 0%, rgba(37,99,235,.12), transparent 60%);
-  opacity: .9;
-  z-index: 0;
+.projects li *{
+  max-width: 95ch;
 }
-.projects > *{ position: relative; z-index: 1; }
 
 /* =========================================================
    CONTACT
 ========================================================= */
 .contact a{
   color: var(--brand);
-  font-weight: 800;
+  font-weight: 900;
 }
 .contact a:hover{ text-decoration: underline; }
 
