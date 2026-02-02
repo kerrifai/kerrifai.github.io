@@ -1,105 +1,90 @@
-/*
-  Modern, clean, production-ready UI
-  - Glass-like cards
-  - Subtle gradient background
-  - Sticky navbar with blur
-  - Better typography + spacing
-  - Responsive grid
-  - Dark mode via prefers-color-scheme
-*/
+/* =========================================================
+   Production UI v2 — Modern / Clean / Balanced layout
+   - Better grid distribution (top 3 cards, bottom 2)
+   - Projects wide, Contact narrow (8/4)
+   - Softer background, better typography
+   - Modern sticky navbar with blur
+========================================================= */
 
 :root{
-  --bg0:#0b1220;
-  --bg1:#0f172a;
-  --card: rgba(255,255,255,.75);
-  --card2: rgba(255,255,255,.55);
-  --text:#0f172a;
-  --muted:#475569;
-  --border: rgba(15, 23, 42, .10);
+  --container: 1120px;
+  --radius: 18px;
 
-  --brand:#2563eb;
+  --text: #0f172a;
+  --muted: #475569;
+
+  --border: rgba(15,23,42,.10);
+  --card: rgba(255,255,255,.72);
+  --card2: rgba(255,255,255,.55);
+
+  --brand: #2563eb;
   --brand2:#22c55e;
-  --accent:#f59e0b;
 
   --shadow: 0 10px 30px rgba(2, 6, 23, .10);
-  --shadow2: 0 18px 50px rgba(2, 6, 23, .16);
+  --shadow2: 0 18px 55px rgba(2, 6, 23, .14);
 
-  --radius: 16px;
-  --radius2: 22px;
-
-  --container: 1120px;
   --navH: 72px;
 
-  --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans";
 }
 
 /* Dark mode */
 @media (prefers-color-scheme: dark){
   :root{
-    --card: rgba(15, 23, 42, .70);
-    --card2: rgba(15, 23, 42, .55);
     --text: #e5e7eb;
-    --muted:#9ca3af;
-    --border: rgba(148, 163, 184, .18);
-    --shadow: 0 10px 30px rgba(0,0,0,.35);
-    --shadow2: 0 18px 60px rgba(0,0,0,.45);
+    --muted: #9ca3af;
+    --border: rgba(148,163,184,.18);
+    --card: rgba(15,23,42,.70);
+    --card2: rgba(15,23,42,.55);
+    --shadow: 0 14px 40px rgba(0,0,0,.35);
+    --shadow2: 0 22px 70px rgba(0,0,0,.45);
   }
 }
 
-/* ---------- Base ---------- */
-*{ box-sizing: border-box; }
-html, body{ height: 100%; }
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
 
 body{
   margin:0;
   font-family: var(--font);
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 
-  /* Background */
+  /* Softer, more premium background */
   background:
-    radial-gradient(900px 500px at 15% 10%, rgba(37,99,235,.22), transparent 65%),
-    radial-gradient(700px 420px at 85% 20%, rgba(34,197,94,.18), transparent 60%),
-    radial-gradient(900px 540px at 40% 95%, rgba(245,158,11,.14), transparent 60%),
+    radial-gradient(900px 520px at 16% 10%, rgba(37,99,235,.20), transparent 65%),
+    radial-gradient(820px 520px at 86% 18%, rgba(34,197,94,.16), transparent 60%),
+    radial-gradient(900px 560px at 50% 95%, rgba(99,102,241,.12), transparent 60%),
     linear-gradient(180deg, rgba(2,6,23,.02), rgba(2,6,23,.04));
 }
 
 /* Links */
-a{
-  color: inherit;
-  text-decoration: none;
-}
-a:hover{ text-decoration: none; }
+a{ color: inherit; text-decoration:none; }
+a:hover{ text-decoration:none; }
 
-/* Selection */
-::selection{
-  background: rgba(37,99,235,.25);
-}
-
-/* ---------- Header / Nav ---------- */
+/* =========================================================
+   NAVBAR
+========================================================= */
 header{
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   height: var(--navH);
-  display: flex;
-  align-items: center;
+  display:flex;
+  align-items:center;
 
-  background: rgba(255,255,255,.55);
+  background: rgba(255,255,255,.60);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
 @media (prefers-color-scheme: dark){
-  header{
-    background: rgba(2,6,23,.55);
-  }
+  header{ background: rgba(2,6,23,.60); }
 }
 
-/* nav becomes a container */
 nav{
   width: min(var(--container), calc(100% - 32px));
   margin: 0 auto;
@@ -109,7 +94,6 @@ nav{
   gap: 14px;
 }
 
-/* menu */
 nav ul{
   list-style:none;
   margin:0;
@@ -119,96 +103,76 @@ nav ul{
   gap: 10px;
 }
 
-nav ul li{ display:inline; }
-
 nav ul li a{
   display:inline-flex;
   align-items:center;
-  gap: 8px;
   padding: 10px 12px;
   border-radius: 12px;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 700;
+  font-size: 14px;
   color: var(--text);
   opacity: .92;
-  transition: transform .15s ease, background .15s ease, opacity .15s ease;
+  transition: background .15s ease, transform .15s ease, opacity .15s ease;
 }
 
 nav ul li a:hover{
   background: rgba(37,99,235,.10);
-  opacity: 1;
   transform: translateY(-1px);
+  opacity: 1;
 }
 
-nav ul li a:focus-visible{
-  outline: 3px solid rgba(37,99,235,.35);
-  outline-offset: 2px;
-}
-
-/* Language selector (override old absolute positioning) */
+/* Language selector (right side) */
 .language-selector{
-  position: static;
   display:flex;
   align-items:center;
   gap: 10px;
   padding: 8px 10px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: rgba(255,255,255,.35);
+  background: rgba(255,255,255,.40);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
 @media (prefers-color-scheme: dark){
-  .language-selector{
-    background: rgba(15,23,42,.35);
-  }
+  .language-selector{ background: rgba(15,23,42,.35); }
 }
 
-.language-selector .flag{
+.flag{
   width: 26px;
   height: 18px;
-  object-fit: cover;
   border-radius: 6px;
-  box-shadow: 0 6px 14px rgba(0,0,0,.10);
-  transform: translateZ(0);
+  object-fit: cover;
+  box-shadow: 0 8px 16px rgba(0,0,0,.12);
   transition: transform .15s ease, filter .15s ease;
-  cursor: pointer;
 }
-.language-selector .flag:hover{
+.flag:hover{
   transform: translateY(-1px) scale(1.05);
-  filter: saturate(1.1);
+  filter: saturate(1.05);
 }
 
-@media (max-width: 768px){
-  header{ height: 64px; }
-  nav{ width: calc(100% - 20px); }
-  nav ul li a{ padding: 9px 10px; font-size: 14px; }
-  .language-selector{ padding: 6px 8px; }
-  .language-selector .flag{ width: 24px; height: 16px; }
-}
-
-/* ---------- Main Layout ---------- */
+/* =========================================================
+   MAIN / HERO
+========================================================= */
 main{
   width: min(var(--container), calc(100% - 32px));
   margin: 0 auto;
-  padding: 34px 0 46px;
+  padding: 28px 0 44px;
 }
 
-/* Hero / Intro */
 .intro{
   display:flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 12px;
+  align-items:center;
+  text-align:center;
+  gap: 10px;
 
   padding: 26px 18px 18px;
   margin-top: 10px;
 
   border: 1px solid var(--border);
-  border-radius: var(--radius2);
-  background: rgba(255,255,255,.35);
+  border-radius: 22px;
+  background: rgba(255,255,255,.42);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
@@ -218,11 +182,20 @@ main{
   .intro{ background: rgba(15,23,42,.35); }
 }
 
+.profile-photo{
+  width: 128px;
+  height: 128px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,.65);
+  box-shadow: var(--shadow2);
+}
+
 .intro h1{
   margin: 0;
-  font-size: clamp(28px, 4vw, 44px);
-  line-height: 1.12;
+  font-size: clamp(28px, 3.8vw, 44px);
   letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
 .intro p{
@@ -232,17 +205,9 @@ main{
   max-width: 70ch;
 }
 
-.profile-photo{
-  width: 132px;
-  height: 132px;
-  border-radius: 999px;
-  object-fit: cover;
-
-  border: 2px solid rgba(255,255,255,.65);
-  box-shadow: var(--shadow2);
-}
-
-/* ---------- Grid ---------- */
+/* =========================================================
+   GRID / CARDS
+========================================================= */
 .grid-layout{
   display:grid;
   grid-template-columns: repeat(12, 1fr);
@@ -262,127 +227,145 @@ main{
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 
-/* Card hover */
 .card:hover{
   transform: translateY(-4px);
   box-shadow: var(--shadow2);
   border-color: rgba(37,99,235,.22);
 }
 
-/* Headings inside cards */
 .card h2{
   margin: 0 0 10px 0;
   font-size: 18px;
   letter-spacing: -0.01em;
 }
+
 .card p{
   margin: 0 0 12px 0;
   color: var(--muted);
 }
 
-/* Better list formatting */
+/* Lists */
 .card ul{
   margin: 0;
-  padding-left: 18px; /* keep normal bullets for readability */
+  padding-left: 18px;
 }
-.card li{
-  margin: 8px 0;
-  color: var(--text);
-}
-.card li strong{ font-weight: 700; }
+.card li{ margin: 8px 0; }
+.card li strong{ font-weight: 800; }
 
-/* Place each section in a layout (desktop) */
-.cv{ grid-column: span 6; }
-.about-me{ grid-column: span 6; }
-.skills{ grid-column: span 6; }
-.projects{ grid-column: span 6; }
-.contact{ grid-column: span 12; }
+/* ✅ Layout distribution (fix your screenshot)
+   Top row: 3 cards (4/4/4)
+   Bottom: Projects (8) + Contact (4)
+*/
+.cv{ grid-column: span 4; }
+.about-me{ grid-column: span 4; }
+.skills{ grid-column: span 4; }
 
-/* The spacer "clean" section shouldn't be visible */
+.projects{ grid-column: span 8; }
+.contact{ grid-column: span 4; }
+
+/* Hide spacer */
 .clean{ display:none; }
 
-/* Responsive: stack */
-@media (max-width: 980px){
-  .cv, .about-me, .skills, .projects{ grid-column: span 12; }
+/* Responsive */
+@media (max-width: 1024px){
+  .cv, .about-me, .skills{ grid-column: span 12; }
+  .projects, .contact{ grid-column: span 12; }
 }
 
-/* ---------- Buttons ---------- */
+/* =========================================================
+   BUTTONS
+========================================================= */
 .btn{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   padding: 10px 14px;
   border-radius: 12px;
   border: 1px solid rgba(37,99,235,.25);
   background: linear-gradient(180deg, rgba(37,99,235,.95), rgba(29,78,216,.95));
-  color: white;
-  font-weight: 700;
+  color: #fff;
+  font-weight: 800;
   font-size: 14px;
-
-  box-shadow: 0 12px 26px rgba(37,99,235,.20);
+  box-shadow: 0 14px 30px rgba(37,99,235,.18);
   transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
 }
-
 .btn:hover{
   transform: translateY(-1px);
   filter: brightness(1.04);
-  box-shadow: 0 16px 32px rgba(37,99,235,.25);
+  box-shadow: 0 18px 40px rgba(37,99,235,.22);
 }
 
-.btn:active{ transform: translateY(0px); }
+.cv .btn + .btn{ margin-left: 10px; }
 
-/* If you have two buttons in a row (CV section), space them */
-.cv .btn + .btn{
-  margin-left: 10px;
-}
-
-/* ---------- Projects ---------- */
+/* =========================================================
+   PROJECTS: make it readable + less “wall of text”
+========================================================= */
 .projects ul{
+  list-style:none;
   padding-left: 0;
-  list-style: none;
+  margin: 0;
 }
+
 .projects li{
+  margin: 10px 0;
   padding: 12px 12px;
   border-radius: 14px;
   border: 1px solid var(--border);
   background: var(--card2);
-  margin: 10px 0;
 }
 
 .projects li a{
   color: var(--brand);
-  font-weight: 800;
-}
-.projects li a:hover{
-  text-decoration: underline;
+  font-weight: 900;
 }
 
-/* ---------- Contact ---------- */
+.projects li a:hover{ text-decoration: underline; }
+
+.projects li p{
+  margin: 6px 0 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* If your HTML has <br> or plain text blocks inside projects,
+   keep line length comfortable */
+.projects{
+  position: relative;
+}
+.projects::before{
+  content:"";
+  position:absolute;
+  inset: -1px;
+  border-radius: var(--radius);
+  pointer-events:none;
+  background: radial-gradient(500px 140px at 15% 0%, rgba(37,99,235,.12), transparent 60%);
+  opacity: .9;
+  z-index: 0;
+}
+.projects > *{ position: relative; z-index: 1; }
+
+/* =========================================================
+   CONTACT
+========================================================= */
 .contact a{
   color: var(--brand);
-  font-weight: 700;
+  font-weight: 800;
 }
-.contact a:hover{
-  text-decoration: underline;
-}
+.contact a:hover{ text-decoration: underline; }
 
-/* ---------- Footer ---------- */
+/* =========================================================
+   FOOTER
+========================================================= */
 footer{
   width: min(var(--container), calc(100% - 32px));
   margin: 18px auto 26px;
   padding: 14px 0;
-  text-align: center;
-
+  text-align:center;
   color: var(--muted);
   border-top: 1px solid var(--border);
 }
 
-/* ---------- Accessibility niceties ---------- */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce){
-  *{
-    transition: none !important;
-    scroll-behavior: auto !important;
-  }
+  *{ transition:none !important; }
 }
