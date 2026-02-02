@@ -1,24 +1,22 @@
-/* =========================================================
-   Production UI — WHITE / CLEAN / PROFESSIONAL
-========================================================= */
-
 :root{
   --container: 1120px;
   --radius: 18px;
-  --radius2: 24px;
+  --radius2: 26px;
 
   --text: #0f172a;
   --muted: #475569;
 
   --border: rgba(15,23,42,.08);
+  --border2: rgba(15,23,42,.06);
+
   --card: #ffffff;
-  --card2: #f9fafb;
+  --card2: #fbfcff;
 
   --brand: #2563eb;
   --brand-soft: rgba(37,99,235,.08);
 
-  --shadow: 0 8px 24px rgba(15,23,42,.08);
-  --shadow2: 0 16px 40px rgba(15,23,42,.12);
+  --shadow: 0 10px 28px rgba(15,23,42,.07);
+  --shadow2: 0 18px 44px rgba(15,23,42,.10);
 
   --navH: 72px;
 
@@ -34,17 +32,23 @@ body{
   font-family: var(--font);
   color: var(--text);
   line-height: 1.55;
-  background: #ffffff;
   -webkit-font-smoothing: antialiased;
+
+  /* ✅ Fondo blanco, pero con “toque pro” muy sutil (no gris) */
+  background:
+    radial-gradient(900px 500px at 18% 8%, rgba(37,99,235,.06), transparent 60%),
+    radial-gradient(900px 520px at 82% 14%, rgba(34,197,94,.05), transparent 60%),
+    #ffffff;
 }
 
-/* Links */
 a{ color: inherit; text-decoration:none; }
 a:hover{ text-decoration:none; }
 
-/* =========================================================
-   NAVBAR — WHITE
-========================================================= */
+::selection{ background: rgba(37,99,235,.18); }
+
+/* =========================
+   NAVBAR — white, clean
+========================= */
 header{
   position: sticky;
   top: 0;
@@ -53,9 +57,14 @@ header{
   display:flex;
   align-items:center;
 
-  background: #ffffff;
+  background: rgba(255,255,255,.92);
   border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
+
+/* Si te aparece una franja oscura arriba, esto la elimina */
+header, nav{ box-shadow: none !important; }
 
 nav{
   width: min(var(--container), calc(100% - 32px));
@@ -63,6 +72,7 @@ nav{
   display:flex;
   align-items:center;
   justify-content: space-between;
+  gap: 14px;
 }
 
 nav ul{
@@ -76,14 +86,15 @@ nav ul{
 nav ul li a{
   padding: 10px 14px;
   border-radius: 12px;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 14px;
   color: var(--text);
-  transition: background .15s ease;
+  transition: background .15s ease, transform .15s ease;
 }
 
 nav ul li a:hover{
   background: var(--brand-soft);
+  transform: translateY(-1px);
 }
 
 /* Language selector */
@@ -93,7 +104,8 @@ nav ul li a:hover{
   padding: 6px 10px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: #ffffff;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(15,23,42,.06);
 }
 
 .flag{
@@ -101,11 +113,13 @@ nav ul li a:hover{
   height: 18px;
   border-radius: 6px;
   object-fit: cover;
+  transition: transform .15s ease;
 }
+.flag:hover{ transform: translateY(-1px) scale(1.05); }
 
-/* =========================================================
-   MAIN / HERO — WHITE & CLEAN
-========================================================= */
+/* =========================
+   MAIN / HERO
+========================= */
 main{
   width: min(var(--container), calc(100% - 32px));
   margin: 0 auto;
@@ -113,19 +127,35 @@ main{
 }
 
 .intro{
+  position: relative;
   display:flex;
   flex-direction: column;
   align-items:center;
   text-align:center;
   gap: 10px;
 
-  padding: 28px 20px 22px;
+  padding: 30px 20px 22px;
   margin-top: 10px;
 
-  background: #ffffff;
+  background: #fff;
+  border: 1px solid var(--border2);
   border-radius: var(--radius2);
   box-shadow: var(--shadow);
+  overflow: hidden;
 }
+
+/* ✅ highlight muy suave, sin “gris” */
+.intro::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:
+    radial-gradient(560px 160px at 18% 0%, rgba(37,99,235,.08), transparent 60%),
+    radial-gradient(520px 180px at 82% 10%, rgba(34,197,94,.06), transparent 60%);
+  pointer-events:none;
+}
+
+.intro > *{ position: relative; z-index: 1; }
 
 .profile-photo{
   width: 120px;
@@ -133,24 +163,25 @@ main{
   border-radius: 999px;
   object-fit: cover;
   box-shadow: var(--shadow2);
+  border: 2px solid rgba(255,255,255,.9);
 }
 
 .intro h1{
   margin: 0;
-  font-size: clamp(28px, 3.6vw, 42px);
+  font-size: clamp(28px, 3.6vw, 44px);
   letter-spacing: -0.02em;
 }
 
 .intro h3{
   margin: 0;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--muted);
 }
 
-/* =========================================================
-   GRID / CARDS — WHITE CARDS
-========================================================= */
+/* =========================
+   GRID / CARDS
+========================= */
 .grid-layout{
   display:grid;
   grid-template-columns: repeat(12, 1fr);
@@ -160,20 +191,23 @@ main{
 
 .card{
   background: var(--card);
+  border: 1px solid var(--border2);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 18px 18px 16px;
-  transition: transform .15s ease, box-shadow .15s ease;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
 }
 
 .card:hover{
   transform: translateY(-4px);
   box-shadow: var(--shadow2);
+  border-color: rgba(37,99,235,.16);
 }
 
 .card h2{
   margin: 0 0 10px 0;
   font-size: 18px;
+  letter-spacing: -0.01em;
 }
 
 .card p{
@@ -186,15 +220,12 @@ main{
   padding-left: 18px;
 }
 
-.card li{
-  margin: 8px 0;
-}
+.card li{ margin: 8px 0; }
 
 /* Layout */
 .cv{ grid-column: span 4; }
 .about-me{ grid-column: span 4; }
 .skills{ grid-column: span 4; }
-
 .projects{ grid-column: span 8; }
 .contact{ grid-column: span 4; }
 
@@ -207,50 +238,57 @@ main{
   }
 }
 
-/* =========================================================
-   BUTTONS — BLUE ACCENT
-========================================================= */
+/* =========================
+   BUTTONS — modern, not too heavy
+========================= */
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
   padding: 10px 14px;
   border-radius: 12px;
-  background: var(--brand);
+  background: linear-gradient(180deg, #2f6bff, #1f56d6);
   color: #fff;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 14px;
-  box-shadow: 0 10px 24px rgba(37,99,235,.25);
+  box-shadow: 0 12px 26px rgba(37,99,235,.22);
   transition: transform .15s ease, box-shadow .15s ease;
 }
 
 .btn:hover{
   transform: translateY(-1px);
-  box-shadow: 0 14px 32px rgba(37,99,235,.35);
+  box-shadow: 0 16px 34px rgba(37,99,235,.28);
 }
 
-.cv .btn + .btn{
-  margin-left: 10px;
-}
+.cv .btn + .btn{ margin-left: 10px; }
 
-/* =========================================================
-   PROJECTS — CLEAN LIST
-========================================================= */
+/* =========================
+   PROJECTS — clearer hierarchy, still white
+========================= */
 .projects ul{
   list-style:none;
   padding-left: 0;
+  margin: 0;
 }
 
 .projects li{
   background: var(--card2);
+  border: 1px solid var(--border2);
   border-radius: 14px;
   padding: 12px 14px;
   margin: 10px 0;
+  box-shadow: 0 10px 18px rgba(15,23,42,.05);
+  transition: transform .15s ease, border-color .15s ease;
+}
+
+.projects li:hover{
+  transform: translateY(-2px);
+  border-color: rgba(37,99,235,.16);
 }
 
 .projects li a{
   color: var(--brand);
-  font-weight: 800;
+  font-weight: 900;
 }
 
 .projects li p{
@@ -259,17 +297,17 @@ main{
   font-size: 14px;
 }
 
-/* =========================================================
+/* =========================
    CONTACT
-========================================================= */
+========================= */
 .contact a{
   color: var(--brand);
-  font-weight: 700;
+  font-weight: 800;
 }
 
-/* =========================================================
+/* =========================
    FOOTER
-========================================================= */
+========================= */
 footer{
   width: min(var(--container), calc(100% - 32px));
   margin: 24px auto;
@@ -277,4 +315,9 @@ footer{
   border-top: 1px solid var(--border);
   text-align:center;
   color: var(--muted);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{ transition:none !important; }
 }
