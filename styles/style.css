@@ -366,10 +366,8 @@ footer{
   }
 }
 /* =========================
-   SKILLS — full width + emoji blocks + tags
+   SKILLS — blocks + chips (fix)
 ========================= */
-.skills{ grid-column: span 12; }
-
 .skills-head{
   display:flex;
   align-items: baseline;
@@ -385,11 +383,12 @@ footer{
   font-weight: 600;
 }
 
-/* Bloques en grid para aprovechar el ancho */
+/* fuerza layout a ocupar ancho real */
 .skills-grid{
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 14px;
+  width: 100%;
   margin-top: 8px;
 }
 
@@ -408,7 +407,6 @@ footer{
   color: var(--text);
 }
 
-/* Chips */
 .skill-tags{
   display: flex;
   flex-wrap: wrap;
