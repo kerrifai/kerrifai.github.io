@@ -1,0 +1,215 @@
+/*
+@file style.css
+@brief CSS styles for Karim Errifai Haddaoui's personal website.
+
+This file contains the CSS rules for styling the webpage. It includes styles for the body, header, navigation menu, sections, buttons, and footer.
+
+@section global Global Styles
+Defines basic styles for the body and page layout.
+
+@section header Header Styles
+Styles for the fixed header and navigation menu.
+
+@section content Main Content Styles
+Styles for the introduction, "About Me", and CV sections.
+
+@section buttons Button Styles
+Styles for the appearance and behavior of clickable buttons.
+
+@section footer Footer Styles
+Styles for the footer section of the page.
+*/
+
+/* Global body styles */
+body {
+  font-family: 'Arial', sans-serif; /* Sets the font for the body */
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+  background-color: #f4f4f4; /* Sets a light grey background */
+  color: #333; /* Sets the text color to dark grey */
+  text-align: center; /* Centers the text on the page */
+}
+
+/* Header section styles */
+header {
+  background: #222; /* Dark background for the header */
+  color: white; /* White text color */
+  padding: 10px 0; /* Adds padding above and below the header */
+  position: fixed; /* Fixes the header to the top of the page */
+  width: 100%; /* Makes the header span the full width of the page */
+  top: 0; /* Positions the header at the top */
+  left: 0; /* Aligns the header to the left */
+  box-shadow: 0px 4px 2px -2px gray; /* Adds a shadow under the header */
+}
+
+/* Language selector container */
+.language-selector {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Flag size on larger screens */
+.language-selector .flag {
+  width: 24px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Hover effect */
+.language-selector .flag:hover {
+  transform: scale(1.1);
+}
+
+/* Adjustments for mobile screens */
+@media (max-width: 768px) {
+  .language-selector {
+      top: 5px;
+      right: 10px;
+      gap: 5px;
+  }
+
+  .language-selector .flag {
+      width: 18px;  /* Smaller flag size */
+  }
+}
+
+/* Navigation bar styles */
+nav ul {
+  list-style: none; /* Removes bullet points from the list */
+  padding: 0; /* Removes default padding */
+  display: flex; /* Displays the list items as flexbox items */
+  justify-content: center; /* Centers the items horizontally */
+  gap: 20px; /* Adds spacing between the items */
+}
+
+nav ul li {
+  display: inline; /* Ensures that list items are displayed inline */
+}
+
+nav ul li a {
+  color: white; /* Sets the link text color to white */
+  text-decoration: none; /* Removes underline from links */
+  font-size: 18px; /* Sets the font size for the links */
+  padding: 10px; /* Adds padding inside the link */
+  transition: 0.3s; /* Adds a smooth transition effect */
+}
+
+nav ul li a:hover {
+  color: #f4a261; /* Changes the link color on hover */
+}
+
+/* Main content padding adjustment */
+main {
+  padding: 100px 20px 40px; /* Adds padding to the main content */
+}
+
+.intro {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.intro h1 {
+  font-size: 2.8em;
+  margin-bottom: 0.5rem;
+}
+
+.intro p {
+  font-size: 1.1em;
+  color: #444;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Styles for the About Me and CV sections */
+.card {
+  background: white; /* Sets the background to white */
+  padding: 20px; /* Adds padding inside the section */
+  margin: 20px auto; /* Adds margin around the section */
+  max-width: 600px; /* Sets a maximum width for the section */
+  border-radius: 10px; /* Rounds the corners of the section */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.skills ul,
+.contact ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.skills li,
+.contact li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.projects ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.projects li {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.projects li a {
+    color: #007acc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.projects li a:hover {
+    text-decoration: underline;
+}
+
+.profile-photo {
+    width: 150px; /* Adjust in size */
+    border-radius: 50%; /* Make it circular */
+    display: block;
+    margin: 10px auto; /* Centers image */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Light shade */
+}
+
+/* Button styles */
+.btn {
+  display: inline-block; /* Displays the button as an inline block */
+  padding: 10px 20px; /* Adds padding inside the button */
+  background: #222; /* Dark background color */
+  color: white; /* White text color */
+  text-decoration: none; /* Removes underline */
+  border-radius: 5px; /* Rounds the corners of the button */
+  transition: 0.3s; /* Adds a smooth transition effect */
+}
+
+.btn:hover {
+  background: #007acc; /* Changes the background color on hover */
+}
+
+/* Footer styles */
+footer {
+  margin-top: 20px; /* Adds space above the footer */
+  padding: 10px; /* Adds padding inside the footer */
+  background: #222; /* Dark background color */
+  color: white; /* White text color */
+}

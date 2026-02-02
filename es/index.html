@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!--
+    @file index.html
+    @brief Main webpage of Karim Errifai Haddaoui - SW Developer.
+
+    This is the main page for Karim Errifai Haddaoui personal website. It includes navigation links to the curriculum and the home page.
+
+    @section header Header Section
+    This section contains the navigation menu with links to the home page and the curriculum page.
+
+    @section content Main Content
+    The content includes a brief introduction, an "About Me" section, and a link to view or download the full CV.
+
+    @section footer Footer Section
+    The footer contains the copyright notice.
+    -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karim Errifai Haddaoui - Desarrollador SW Embebido</title>
+    <link href="../styles/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!-- Header section with navigation bar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="../pages/es/Curriculum.html">Currículum</a></li>
+            </ul>
+            <div class="language-selector">
+                <a href="../en/index.html"><img src="../images/uk-flag.png" alt="English" class="flag"></a>
+                <a href="index.html"><img src="../images/spain-flag.png" alt="Español" class="flag"></a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main content section -->
+    <main>
+        <section class="intro">
+            <h1>Karim Errifai Haddaoui</h1>
+            <img src="../images/profile.jpeg" alt="Foto de perfil de Karim errifai Haddaoui" class="profile-photo">
+            <p><strong>Desarrollador SW Embebido</strong></p>
+        </section>
+
+        <div class="grid-layout">
+            <!-- CV section -->
+            <section class="cv card">
+                <h2>Mi currículum</h2>
+                <p>Puedes ver mi currículum completo en el siguiente enlace:</p>
+                <a href="../pages/es/Curriculum.html" class="btn">Ver currículum</a>
+                <p>O si lo prefieres, puedes descargarlo directamente:</p>
+                <a href="../files/es/CV.pdf" download class="btn">Descargar CV</a>
+            </section>
+
+            <!-- About Me section -->
+            <section class="about-me card">
+                <h2>Sobre mí</h2>
+                <p>
+                    Soy un ingeniero especializado en sistemas embebidos, electrónica y desarrollo de software. 
+                    Valoro la honestidad, la fiabilidad y la mejora continua. Me gusta diseñar sistemas modulares, escalables y mantenibles 
+                    que combinan firmware, hardware y protocolos de comunicación.
+                </p>
+                <p>
+                    Actualmente trabajo en <a href="https://www.grupooesia.com/es/" target="_blank" rel="noopener noreferrer">Inster – Grupo Oesía</a>, desarrollando software embebido para equipos de telecomunicaciones 
+                    con requisitos de nivel militar. También exploro proyectos personales en robótica, automatización y sistemas autoalojados.
+                </p>
+            </section>
+
+            <!-- Skills section -->
+            <section class="skills card">
+                <h2>Tecnologías y herramientas</h2>
+                <ul>
+                    <li><strong>Lenguajes:</strong> C, Python, Shell scripting, C++</li>
+                    <li><strong>Plataformas:</strong> ESP32, STM32 (ARM Cortex-M), PIC18, AVR</li>
+                    <li><strong>OS / Frameworks:</strong> Linux, FreeRTOS</li>
+                    <li><strong>Herramientas:</strong> Git, VS Code, Altium, KiCad, Docker</li>
+                    <li><strong>Comunicación:</strong> UART, SPI, I2C, CAN, Bluetooth</li>
+                </ul>
+            </section>
+
+            <!-- Clean spacer section -->
+            <section class="clean">
+            </section>
+
+            <!-- Projects section -->
+            <section class="projects card">
+                <h2>Proyectos destacados</h2>
+                <ul>
+                    <li>
+                        <strong><a href="https://github.com/angelsotob/angelsoftworks-freertos-ecs" target="_blank">FreeRTOS ECS Template</a></strong>: 
+                        Plantilla modular para entornos de producción con FreeRTOS basada en separación por componentes.
+                    </li>
+                    <li>
+                        <strong><a href="https://github.com/angelsotob/C-Template" target="_blank">C Project Template</a></strong>: 
+                        Plantilla de proyecto en C, limpia y testeable, con pruebas unitarias y automatización de compilación.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Contact section -->
+            <section class="contact card">
+                <h2>Contacto</h2>
+                <p>Puedes contactarme a través de las siguientes plataformas:</p>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:karimerrifai@gmail.com">karimerrifai@gmail.com</a></li>
+                    <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/karim-errifai-haddaoui/" target="_blank" rel="noopener noreferrer">linkedin.com/in/karim-errifai-haddaoui</a></li>
+                    <li><strong>GitHub:</strong> <a href="https://github.com/kerrifai" target="_blank" rel="noopener noreferrer">github.com/kerrifai</a></li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Karim Errifai Haddaoui</p>
+    </footer>
+</body>
+</html>

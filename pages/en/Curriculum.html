@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+    @file Curriculum.html
+    @brief Curriculum page for Karim Errifai Haddaoui.
+    
+    This page contains an embedded PDF of the curriculum of Karim Errifai Haddaoui, along with a link to download the full CV.
+    
+    @section header Header Section
+    This section contains the navigation menu with links to the home page and the curriculum page.
+
+    @section content Main Content
+    The content includes an embedded view of the CV as a PDF and a download link.
+    
+    @section footer Footer Section
+    The footer contains the copyright notice.
+    -->
+
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5DJHTQZZD8"></script>
+    <script>
+    // GA4 initialization
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-5DJHTQZZD8');
+
+    // ----------- CUSTOM TRACKING -----------
+
+    // Track CV PDF downloads
+    function bindCvDownloadTracking() {
+        const links = Array.from(document.querySelectorAll('a[href$=".pdf"], a[download]'));
+        links.forEach(a => {
+        a.addEventListener('click', () => {
+            const lang = location.pathname.includes('/es/') ? 'es' :
+                        location.pathname.includes('/en/') ? 'en' : 'unknown';
+            gtag('event', 'download_cv', {
+            file_name: (a.getAttribute('href') || '').split('/').pop() || 'unknown',
+            page_path: location.pathname,
+            page_title: document.title,
+            // detect language from the link itself:
+            language: (a.getAttribute('href') || '').includes('/es/') ? 'es' :
+                        (a.getAttribute('href') || '').includes('/en/') ? 'en' : 'unknown',
+            transport_type: 'beacon'
+            });
+        }, { passive: true });
+        });
+    }
+
+    // Track clicks to the CV page
+    function bindViewCvTracking() {
+    document.querySelectorAll('a[href*="Curriculum.html"]').forEach(a => {
+        a.addEventListener('click', () => {
+        const lang = a.href.includes('/es/') ? 'es' :
+                    a.href.includes('/en/') ? 'en' : 'unknown';
+        gtag('event', 'view_cv_page', {
+            link_href: a.getAttribute('href'),
+            language: lang,
+            page_path: location.pathname,
+            transport_type: 'beacon'
+        });
+        }, { passive: true });
+    });
+    }
+
+    // Init tracking when DOM is ready
+    function initTracking() {
+        bindCvDownloadTracking();
+        bindViewCvTracking();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTracking);
+    } else {
+        initTracking();
+    }
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karim Errifai Haddaoui - Embedded SW Developer</title>
+    <link href="../../styles/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!-- Header section with navigation bar -->
+    <header>
+        <nav>
+            <!-- Navigation menu list -->
+            <ul>
+                <li><a href="../../en/index.html">Home</a></li>
+                <li><a href="Curriculum.html">Curriculum</a></li>
+            </ul>
+            <!-- Language Switch Button -->
+            <div class="language-selector">
+                <a href="Curriculum.html"><img src="../../images/uk-flag.png" alt="English" class="flag"></a>
+                <a href="../es/Curriculum.html"><img src="../../images/spain-flag.png" alt="Español" class="flag"></a>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Main content section of the page -->
+    <main>
+        <!-- Introduction section with name and profession -->
+        <section class="intro">
+            <h1>Karim Errifai Haddaoui</h1>
+            <p><strong>Embedded SW Developer</strong></p>
+        </section>
+        
+        <!-- Curriculum section with embedded PDF and download link -->
+        <section class="cv">
+            <h2>My Curriculum</h2>
+            <p>You can view or download it below:</p>
+            
+            <!-- Embedded PDF of the curriculum -->
+            <div class="pdf-container">
+                <iframe src="../../files/CV.pdf" width="80%" height="400px"></iframe>
+            </div>
+            
+            <!-- Download link for the curriculum -->
+            <a href="../../files/CV.pdf" download class="btn">Download CV</a>
+        </section>
+    </main>
+    
+    <!-- Footer section with copyright information -->
+    <footer>
+        <p>&copy; 2026 Karim Errifai Haddaoui</p>
+    </footer>
+</body>
+</html>
