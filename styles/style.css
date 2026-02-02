@@ -225,11 +225,11 @@ main{
 .card li{ margin: 8px 0; }
 
 /* Layout */
-.cv{ grid-column: span 4; }
+.cv{ grid-column: span 12; }
 .about-me{ grid-column: span 4; }
 .skills {grid-column: span 12; }
 .projects{ grid-column: span 12; }
-.contact{ grid-column: span 4; }
+.contact{ grid-column: span 12; }
 
 .clean{ display:none; }
 
