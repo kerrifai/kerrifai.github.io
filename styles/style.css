@@ -392,6 +392,13 @@ footer{
   margin-top: 8px;
 }
 
+.skill-block:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow2);
+  border-color: rgba(37,99,235,.16);
+}
+
+
 .skill-block{
   grid-column: span 6;
   background: var(--card);
