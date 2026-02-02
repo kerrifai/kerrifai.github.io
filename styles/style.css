@@ -226,7 +226,7 @@ main{
 
 /* Layout */
 .cv{ grid-column: span 12; }
-.about-me{ grid-column: span 4; }
+.about-me{ grid-column: span 12; }
 .skills {grid-column: span 12; }
 .projects{ grid-column: span 12; }
 .contact{ grid-column: span 12; }
