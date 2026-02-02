@@ -394,8 +394,8 @@ footer{
 
 .skill-block{
   grid-column: span 6;
-  background: var(--card2);
-  border: 1px solid var(--border2);
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 14px;
   padding: 14px 14px 12px;
 }
