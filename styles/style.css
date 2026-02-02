@@ -322,3 +322,46 @@ footer{
 @media (prefers-reduced-motion: reduce){
   *{ transition:none !important; }
 }
+/* =========================
+   CONTACT & CV — 2 columns
+========================= */
+.contact-grid{
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.contact-col p{
+  margin: 0 0 12px 0;
+}
+
+.cv-col{
+  border-left: 1px solid var(--border);
+  padding-left: 18px;
+}
+
+.cv-col p{
+  margin: 0 0 12px 0;
+  color: var(--text);
+}
+
+.cv-actions{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 820px){
+  .contact-grid{
+    grid-template-columns: 1fr;
+  }
+  .cv-col{
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+    margin-top: 6px;
+  }
+}
