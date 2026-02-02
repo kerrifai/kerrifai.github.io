@@ -302,7 +302,7 @@ main{
    CONTACT
 ========================= */
 .contact a{
-  color: var(--brand);
+  color: var(--text);
   font-weight: 800;
 }
 
